@@ -1,0 +1,314 @@
+/* =========================================================
+   VISIONAIRE CODE — LAYOUT SYSTEM
+
+   Version: 1.0
+
+   Purpose:
+   Global layout primitives and page structure.
+
+   Includes:
+   Containers
+   Sections
+   Grids
+   Stacks
+   Site shell
+   Responsive layout
+
+   Does not include:
+   Component styling
+   Typography styling
+   Buttons
+   Cards
+   Forms
+   Navigation styling
+
+   ========================================================= */
+
+
+/* =========================================================
+   01. SITE SHELL
+   ========================================================= */
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site__main {
+  flex: 1;
+  width: 100%;
+}
+
+
+/* =========================================================
+   02. CONTAINER
+   ========================================================= */
+
+.container {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter-mobile);
+}
+
+.container--page {
+  max-width: var(--container-page);
+}
+
+.container--sm {
+  max-width: var(--container-sm);
+}
+
+.container--md {
+  max-width: var(--container-md);
+}
+
+.container--lg {
+  max-width: var(--container-lg);
+}
+
+.container--xl {
+  max-width: var(--container-xl);
+}
+
+.container--2xl {
+  max-width: var(--container-2xl);
+}
+
+
+/* =========================================================
+   03. SECTION
+   ========================================================= */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding-block: var(--section-space-standard);
+}
+
+.section--compact {
+  padding-block: var(--section-space-compact);
+}
+
+.section--standard {
+  padding-block: var(--section-space-standard);
+}
+
+.section--large {
+  padding-block: var(--section-space-large);
+}
+
+.section--major {
+  padding-block: var(--section-space-major);
+}
+
+.section--none {
+  padding-block: 0;
+}
+
+
+/* =========================================================
+   04. SECTION SURFACES
+   ========================================================= */
+
+.section--primary {
+  background-color: var(--color-surface-primary);
+}
+
+.section--secondary {
+  background-color: var(--color-surface-secondary);
+}
+
+.section--tertiary {
+  background-color: var(--color-surface-tertiary);
+}
+
+.section--brand {
+  background-color: var(--color-surface-brand);
+  color: var(--color-text-on-brand);
+}
+
+
+/* =========================================================
+   05. GRID
+   ========================================================= */
+
+.grid {
+  display: grid;
+  min-width: 0;
+}
+
+.grid--columns-auto {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 18rem), 1fr)
+  );
+}
+
+.grid--columns-1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.grid--columns-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid--columns-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid--columns-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   06. GRID GAPS
+   ========================================================= */
+
+.grid--gap-compact {
+  gap: var(--grid-gap-compact);
+}
+
+.grid--gap-standard {
+  gap: var(--grid-gap-standard);
+}
+
+.grid--gap-spacious {
+  gap: var(--grid-gap-spacious);
+}
+
+.grid--gap-large {
+  gap: var(--grid-gap-large);
+}
+
+
+/* =========================================================
+   07. STACK
+   ========================================================= */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Stack Gap
+   --------------------------------------------------------- */
+
+.stack--gap-compact {
+  gap: var(--space-3);
+}
+
+.stack--gap-small {
+  gap: var(--space-4);
+}
+
+.stack--gap-standard {
+  gap: var(--space-6);
+}
+
+.stack--gap-large {
+  gap: var(--space-8);
+}
+
+.stack--gap-major {
+  gap: var(--space-12);
+}
+
+
+/* ---------------------------------------------------------
+   Stack Alignment
+   --------------------------------------------------------- */
+
+.stack--align-start {
+  align-items: flex-start;
+}
+
+.stack--align-center {
+  align-items: center;
+}
+
+.stack--align-end {
+  align-items: flex-end;
+}
+
+.stack--align-stretch {
+  align-items: stretch;
+}
+
+
+/* ---------------------------------------------------------
+   Stack Justification
+   --------------------------------------------------------- */
+
+.stack--justify-start {
+  justify-content: flex-start;
+}
+
+.stack--justify-center {
+  justify-content: center;
+}
+
+.stack--justify-end {
+  justify-content: flex-end;
+}
+
+.stack--justify-between {
+  justify-content: space-between;
+}
+
+
+/* =========================================================
+   08. RESPONSIVE — CONTAINER
+   ========================================================= */
+
+@media (min-width: 48rem) {
+  .container {
+    padding-inline: var(--page-gutter-tablet);
+  }
+}
+
+@media (min-width: 64rem) {
+  .container {
+    padding-inline: var(--page-gutter-desktop);
+  }
+}
+
+
+/* =========================================================
+   09. RESPONSIVE — GRID
+   ========================================================= */
+
+@media (max-width: 63.999rem) {
+  .grid--columns-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .grid--columns-2,
+  .grid--columns-3,
+  .grid--columns-4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+/* =========================================================
+   10. RESPONSIVE — SECTION
+   ========================================================= */
+
+@media (max-width: 47.999rem) {
+  .section--standard {
+    padding-block: var(--section-space-compact);
+  }
+
+  .section--large,
+  .section--major {
+    padding-block: var(--section-space-standard);
+  }
+}

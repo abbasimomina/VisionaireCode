@@ -1,0 +1,90 @@
+import { Container } from "../layout/Container.jsx"
+import { Button } from "../ui/Button.jsx"
+
+import "./HeroSection.css"
+
+export function HeroSection({
+  eyebrow,
+  title,
+  description,
+  primaryAction,
+  secondaryAction,
+  visual,
+  className = "",
+}) {
+  return (
+    <section
+      className={`hero-section ${className}`.trim()}
+      aria-labelledby="hero-section-title"
+    >
+      <Container>
+        <div className="hero-section__content">
+
+          {/* Hero Copy */}
+          <div className="hero-section__copy">
+
+            {eyebrow && (
+              <p className="hero-section__eyebrow">
+                {eyebrow}
+              </p>
+            )}
+
+            <h1
+              id="hero-section-title"
+              className="hero-section__title"
+            >
+              {title}
+            </h1>
+
+            {description && (
+              <p className="hero-section__description">
+                {description}
+              </p>
+            )}
+
+            {(primaryAction || secondaryAction) && (
+              <div className="hero-section__actions">
+
+                {primaryAction && (
+                  <Button
+                    as="a"
+                    href={primaryAction.href}
+                    variant={primaryAction.variant || "primary"}
+                    size={primaryAction.size || "lg"}
+                  >
+                    {primaryAction.label}
+                  </Button>
+                )}
+
+                {secondaryAction && (
+                  <Button
+                    as="a"
+                    href={secondaryAction.href}
+                    variant={secondaryAction.variant || "secondary"}
+                    size={secondaryAction.size || "lg"}
+                  >
+                    {secondaryAction.label}
+                  </Button>
+                )}
+
+              </div>
+            )}
+
+          </div>
+
+
+          {/* Hero Visual */}
+          {visual && (
+            <div
+              className="hero-section__visual"
+              aria-hidden="true"
+            >
+              {visual}
+            </div>
+          )}
+
+        </div>
+      </Container>
+    </section>
+  )
+}

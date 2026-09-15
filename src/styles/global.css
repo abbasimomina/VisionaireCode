@@ -1,0 +1,246 @@
+/* =========================================================
+   VISIONAIRE CODE — GLOBAL STYLES
+
+   Version: 1.0
+
+   Purpose:
+   Global document defaults, typography foundation,
+   accessibility, media normalization, and site shell.
+
+   Component, section, and layout-specific styles belong
+   in their respective CSS files.
+
+   ========================================================= */
+
+@import "./tokens.css";
+@import "./layout.css";
+@import "./components.css";
+
+
+/* =========================================================
+   01. ROOT
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+}
+
+
+/* =========================================================
+   02. BOX SIZING
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   03. DOCUMENT
+   ========================================================= */
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+
+  background-color: var(--color-surface-background);
+  color: var(--color-text-primary);
+
+  font-family: var(--font-family-body);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line-height);
+  letter-spacing: var(--type-body-letter-spacing);
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   04. TYPOGRAPHY FOUNDATION
+   ========================================================= */
+
+/*
+   Headings use Space Grotesk to establish Visionaire Code
+   visual personality.
+
+   Body content uses Inter for readability.
+
+   Semantic heading hierarchy is preserved.
+*/
+/* =========================================================
+   04. TYPOGRAPHY FOUNDATION
+   ========================================================= */
+
+/*
+   Headings use Space Grotesk to establish Visionaire Code
+   visual personality.
+
+   Body content uses Inter for readability.
+
+   Semantic heading hierarchy is preserved.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-primary);
+  font-family: var(--font-family-display);
+}
+
+
+/* ---------------------------------------------------------
+   Heading Hierarchy
+   --------------------------------------------------------- */
+
+h1 {
+  font-size: var(--type-h1-size-mobile);
+  font-weight: var(--type-h1-weight);
+  line-height: var(--type-h1-line-height);
+  letter-spacing: var(--type-h1-letter-spacing);
+}
+
+h2 {
+  font-size: var(--type-h2-size-mobile);
+  font-weight: var(--type-h2-weight);
+  line-height: var(--type-h2-line-height);
+  letter-spacing: var(--type-h2-letter-spacing);
+}
+
+h3 {
+  font-size: var(--type-h3-size-mobile);
+  font-weight: var(--type-h3-weight);
+  line-height: var(--type-h3-line-height);
+  letter-spacing: var(--type-h3-letter-spacing);
+}
+
+h4 {
+  font-size: var(--type-h4-size-mobile);
+  font-weight: var(--type-h4-weight);
+  line-height: var(--type-h4-line-height);
+  letter-spacing: var(--type-h4-letter-spacing);
+}
+
+h5,
+h6 {
+  font-family: var(--font-family-display);
+  font-size: var(--type-h4-size-mobile);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+
+/* ---------------------------------------------------------
+   Paragraphs
+   --------------------------------------------------------- */
+
+p {
+  color: var(--color-text-secondary);
+  font-family: var(--type-body-font-family);
+  font-size: var(--type-body-size-mobile);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line-height);
+  letter-spacing: var(--type-body-letter-spacing);
+}
+
+
+/* ---------------------------------------------------------
+   Desktop Typography
+   --------------------------------------------------------- */
+
+@media (min-width: 64rem) {
+
+  h1 {
+    font-size: var(--type-h1-size);
+  }
+
+  h2 {
+    font-size: var(--type-h2-size);
+  }
+
+  h3 {
+    font-size: var(--type-h3-size);
+  }
+
+  h4 {
+    font-size: var(--type-h4-size);
+  }
+
+  h5,
+  h6 {
+    font-size: var(--type-h4-size);
+  }
+
+  p {
+    font-size: var(--type-body-size);
+  }
+}
+
+/* =========================================================
+   12. SELECTION
+   ========================================================= */
+
+::selection {
+  background-color: var(--color-brand-primary-light);
+  color: var(--color-text-primary);
+}
+
+
+/* =========================================================
+   13. SCROLLBAR
+   ========================================================= */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color:
+    var(--color-neutral-400)
+    var(--color-neutral-100);
+}
+
+
+/* =========================================================
+   14. SITE SHELL
+   ========================================================= */
+
+/*
+   The site shell is structural and global.
+
+   More detailed layout rules belong in layout.css.
+*/
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site__main {
+  flex: 1;
+  width: 100%;
+}

@@ -1,0 +1,447 @@
+.core-services-section {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-20);
+  background-color: var(--color-surface-secondary);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.core-services-section__header {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 0.8fr);
+  align-items: end;
+  gap: var(--space-16);
+}
+
+.core-services-section__heading {
+  max-width: 44rem;
+}
+
+.core-services-section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-5);
+  color: var(--color-brand-primary);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.core-services-section__eyebrow::before {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-primary);
+}
+
+.core-services-section__title {
+  max-width: 15ch;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-display);
+  font-size: clamp(
+    var(--font-size-4xl),
+    4.5vw,
+    var(--font-size-6xl)
+  );
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+.core-services-section__introduction {
+  width: 100%;
+  max-width: 36rem;
+  justify-self: end;
+}
+
+.core-services-section__introduction p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+}
+
+.core-services-section__introduction .button {
+  margin-top: var(--space-8);
+}
+
+/* ========================================
+   SERVICE GRID
+   ======================================== */
+
+.core-services-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-16);
+}
+
+/* ========================================
+   SERVICE CARD
+   ======================================== */
+
+.core-services-section__card {
+  min-height: 19rem;
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.core-services-section__card:hover {
+  transform: translateY(-0.25rem);
+  border-color: var(--color-brand-primary);
+  box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   CARD HEADER
+   ======================================== */
+
+.core-services-section__card-header {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.core-services-section__card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border: var(--border-width-thin) solid
+    var(--color-border-primary);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-primary);
+  color: var(--color-brand-primary);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.core-services-section__card:hover
+  .core-services-section__card-icon {
+  border-color: var(--color-brand-primary);
+  background-color: var(--color-brand-primary-light);
+  transform: translateY(-0.125rem);
+}
+
+/* ========================================
+   CARD CONTENT
+   ======================================== */
+
+.core-services-section__card-content {
+  margin-top: auto;
+  padding-top: var(--space-10);
+}
+
+.core-services-section__card-content h3 {
+  max-width: 18ch;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+}
+
+.core-services-section__card-content > p {
+  max-width: 32rem;
+  margin: var(--space-4) 0 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ========================================
+   DETAILED CONTENT
+   ======================================== */
+
+.core-services-section--detailed
+  .core-services-section__card {
+  min-height: 31rem;
+}
+
+.core-services-section__value {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: var(--border-width-thin)
+    solid var(--color-border-subtle);
+}
+
+.core-services-section__value-label,
+.core-services-section__capabilities-label {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-muted);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.core-services-section__value p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.core-services-section__capabilities {
+  margin-top: var(--space-6);
+}
+
+.core-services-section__capabilities ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.core-services-section__capabilities li {
+  padding: 0.4rem 0.65rem;
+  border: var(--border-width-thin)
+    solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-primary);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+}
+
+/* ========================================
+   CARD FOOTER
+   ======================================== */
+
+.core-services-section__card-footer {
+  margin-top: var(--space-6);
+  gap: var(--space-3);
+}
+
+.core-services-section__card-line {
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--color-border-secondary);
+  transition:
+    width var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.core-services-section__card-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-full);
+  color: var(--color-brand-primary);
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  opacity: 0.7;
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.core-services-section__card:hover
+  .core-services-section__card-line {
+  width: 4rem;
+  background-color: var(--color-brand-primary);
+}
+
+.core-services-section__card:hover
+  .core-services-section__card-mark {
+  border-color: var(--color-brand-primary);
+  background-color: var(--color-brand-primary-light);
+  opacity: 1;
+  transform: translate(
+    0.125rem,
+    -0.125rem
+  );
+}
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 64rem) {
+  .core-services-section {
+    padding-block: var(--space-16);
+  }
+
+  .core-services-section__header {
+    gap: var(--space-10);
+  }
+
+  .core-services-section__title {
+    font-size: clamp(
+      var(--font-size-4xl),
+      5vw,
+      var(--font-size-5xl)
+    );
+  }
+
+  .core-services-section__grid {
+    gap: var(--space-4);
+    margin-top: var(--space-12);
+  }
+
+  .core-services-section__card {
+    min-height: 18rem;
+  }
+
+  .core-services-section--detailed
+    .core-services-section__card {
+    min-height: 32rem;
+  }
+}
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 48rem) {
+  .core-services-section {
+    padding-block: var(--space-14);
+  }
+
+  .core-services-section__header {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .core-services-section__title {
+    max-width: 18ch;
+  }
+
+  .core-services-section__introduction {
+    justify-self: start;
+    max-width: 40rem;
+  }
+
+  .core-services-section__grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  }
+
+  .core-services-section--detailed
+    .core-services-section__card {
+    min-height: 31rem;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+   ======================================== */
+
+@media (max-width: 30rem) {
+  .core-services-section {
+    padding-block: var(--space-10);
+  }
+
+  .core-services-section__eyebrow {
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    font-size: var(--font-size-xs);
+  }
+
+  .core-services-section__eyebrow::before {
+    width: 1.25rem;
+  }
+
+  .core-services-section__title {
+    max-width: 100%;
+    font-size: var(--font-size-4xl);
+    line-height: 1;
+  }
+
+  .core-services-section__introduction p {
+    font-size: var(--font-size-md);
+  }
+
+  .core-services-section__introduction .button {
+    width: 100%;
+  }
+
+  .core-services-section__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-10);
+  }
+
+  .core-services-section__card {
+    min-height: 17rem;
+  }
+
+  .core-services-section--detailed
+    .core-services-section__card {
+    min-height: 0;
+  }
+
+  .core-services-section__card-content {
+    padding-top: var(--space-8);
+  }
+
+  .core-services-section__card-footer {
+    margin-top: var(--space-5);
+  }
+
+  .core-services-section__card-line {
+    width: 4rem;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .core-services-section *,
+  .core-services-section *::before,
+  .core-services-section *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
+
+  .core-services-section__card:hover {
+    transform: none;
+  }
+
+  .core-services-section__card:hover
+    .core-services-section__card-icon,
+  .core-services-section__card:hover
+    .core-services-section__card-mark {
+    transform: none;
+  }
+}

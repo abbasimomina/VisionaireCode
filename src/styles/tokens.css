@@ -1,0 +1,675 @@
+:root {
+
+  /* =========================================================
+     VISIONAIRE CODE — DESIGN TOKENS
+
+     Version: 1.0
+
+     Purpose:
+     Global visual, structural, and interaction foundation.
+
+     Component-specific styling belongs in components.css.
+
+     ========================================================= */
+
+
+  /* =========================================================
+     01. COLOR — BRAND
+     ========================================================= */
+
+  --color-brand-primary: #2563eb;
+  --color-brand-primary-hover: #1d4ed8;
+  --color-brand-primary-light: #eaf2ff;
+  --color-brand-accent: #22d3ee;
+
+
+  /* =========================================================
+     02. COLOR — NEUTRAL
+     ========================================================= */
+
+  /*
+     Neutral colors form the structural foundation of the
+     interface.
+
+     The documented system defines the following functional
+     neutral values:
+     - Background
+     - Surface
+     - Surface Secondary
+     - Surface Tertiary
+     - Border
+     - Border Strong
+     - Text Primary
+     - Text Secondary
+     - Text Muted
+     - Text Disabled
+  */
+
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f6f8fb;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e8eef5;
+  --color-neutral-300: #d9e2ec;
+  --color-neutral-400: #c3cfdc;
+  --color-neutral-500: #a8b3c2;
+  --color-neutral-600: #64748b;
+  --color-neutral-700: #475569;
+  --color-neutral-800: #334155;
+  --color-neutral-900: #172033;
+
+
+  /* =========================================================
+     03. COLOR — SURFACE
+     ========================================================= */
+
+  --color-surface-background: #f6f8fb;
+  --color-surface-primary: #ffffff;
+  --color-surface-secondary: #f1f5f9;
+  --color-surface-tertiary: #e8eef5;
+  --color-surface-brand: var(--color-brand-primary);
+  --color-surface-brand-subtle: var(--color-brand-primary-light);
+  --color-surface-overlay: rgb(23 32 51 / 0.55);
+
+
+  /* =========================================================
+     04. COLOR — TEXT
+     ========================================================= */
+
+  --color-text-primary: #172033;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-text-on-brand: #ffffff;
+  --color-text-on-accent: #172033;
+  --color-text-disabled: #a8b3c2;
+  --color-text-inverse: #ffffff;
+
+
+  /* =========================================================
+     05. COLOR — BORDER
+     ========================================================= */
+
+  --color-border-default: #d9e2ec;
+  --color-border-subtle: #e8eef5;
+  --color-border-strong: #c3cfdc;
+  --color-border-brand: var(--color-brand-primary);
+  --color-border-focus: var(--color-brand-primary);
+
+
+  /* =========================================================
+     06. COLOR — SEMANTIC
+     ========================================================= */
+
+  /*
+     Semantic colors communicate system meaning.
+     They are not additional brand colors.
+  */
+
+
+  /* ---------------------------------------------------------
+     Success
+     --------------------------------------------------------- */
+
+  --color-success: #3f8f5b;
+  --color-success-light: #ecfdf3;
+  --color-success-border: #b7e4c7;
+  --color-success-text: #276a40;
+
+
+  /* ---------------------------------------------------------
+     Warning
+     --------------------------------------------------------- */
+
+  --color-warning: #b48628;
+  --color-warning-light: #fff8e7;
+  --color-warning-border: #e9d59a;
+  --color-warning-text: #7a5a18;
+
+
+  /* ---------------------------------------------------------
+     Error
+     --------------------------------------------------------- */
+
+  --color-error: #c45a5a;
+  --color-error-light: #fef0f0;
+  --color-error-border: #e7c0c0;
+  --color-error-text: #963f3f;
+
+
+  /* ---------------------------------------------------------
+     Information
+     --------------------------------------------------------- */
+
+  --color-info: #4d7ea8;
+  --color-info-light: #eef6ff;
+  --color-info-border: #c5dcf4;
+  --color-info-text: #365f82;
+
+
+  /* =========================================================
+     07. TYPOGRAPHY — FAMILY
+     ========================================================= */
+
+  --font-family-display: "Space Grotesk", sans-serif;
+  --font-family-body: "Inter", sans-serif;
+  --font-family-mono: "JetBrains Mono", monospace;
+
+
+  /* =========================================================
+     08. TYPOGRAPHY — WEIGHT
+     ========================================================= */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+
+  /* =========================================================
+     09. TYPOGRAPHY — SIZE
+     ========================================================= */
+
+  --font-size-xs: 0.75rem;       /* 12px */
+  --font-size-sm: 0.875rem;      /* 14px */
+  --font-size-md: 1rem;          /* 16px */
+  --font-size-lg: 1.125rem;      /* 18px */
+  --font-size-xl: 1.25rem;       /* 20px */
+  --font-size-2xl: 1.5rem;       /* 24px */
+  --font-size-3xl: 2rem;         /* 32px */
+  --font-size-4xl: 2.5rem;       /* 40px */
+  --font-size-5xl: 3rem;         /* 48px */
+  --font-size-6xl: 4rem;         /* 64px */
+
+  /*
+     Kept as an extended scale value for compatibility with
+     existing code. Display typography officially uses 64px.
+  */
+
+  --font-size-7xl: 4rem;         /* 64px */
+
+
+  /* =========================================================
+     10. TYPOGRAPHY — HIERARCHY
+     ========================================================= */
+
+  /*
+     Official Visionaire Code typography hierarchy.
+     Display and headings use Space Grotesk.
+     Body/interface typography uses Inter.
+  */
+
+
+  /* ---------------------------------------------------------
+     Display
+     --------------------------------------------------------- */
+
+  --type-display-size: 4rem;
+  --type-display-size-mobile: 2.75rem;
+  --type-display-weight: var(--font-weight-bold);
+  --type-display-line-height: 1.05;
+  --type-display-letter-spacing: -0.03em;
+  --type-display-font-family: var(--font-family-display);
+
+
+  /* ---------------------------------------------------------
+     H1
+     --------------------------------------------------------- */
+
+  --type-h1-size: 3rem;
+  --type-h1-size-mobile: 2.25rem;
+  --type-h1-weight: var(--font-weight-bold);
+  --type-h1-line-height: 1.10;
+  --type-h1-letter-spacing: -0.025em;
+  --type-h1-font-family: var(--font-family-display);
+
+
+  /* ---------------------------------------------------------
+     H2
+     --------------------------------------------------------- */
+
+  --type-h2-size: 2.5rem;
+  --type-h2-size-mobile: 2rem;
+  --type-h2-weight: var(--font-weight-bold);
+  --type-h2-line-height: 1.15;
+  --type-h2-letter-spacing: -0.02em;
+  --type-h2-font-family: var(--font-family-display);
+
+
+  /* ---------------------------------------------------------
+     H3
+     --------------------------------------------------------- */
+
+  --type-h3-size: 2rem;
+  --type-h3-size-mobile: 1.75rem;
+  --type-h3-weight: var(--font-weight-semibold);
+  --type-h3-line-height: 1.20;
+  --type-h3-letter-spacing: -0.015em;
+  --type-h3-font-family: var(--font-family-display);
+
+
+  /* ---------------------------------------------------------
+     H4
+     --------------------------------------------------------- */
+
+  --type-h4-size: 1.5rem;
+  --type-h4-size-mobile: 1.375rem;
+  --type-h4-weight: var(--font-weight-semibold);
+  --type-h4-line-height: 1.25;
+  --type-h4-letter-spacing: -0.01em;
+  --type-h4-font-family: var(--font-family-display);
+
+
+  /* ---------------------------------------------------------
+     Body Large
+     --------------------------------------------------------- */
+
+  --type-body-large-size: 1.125rem;
+  --type-body-large-size-mobile: 1.0625rem;
+  --type-body-large-weight: var(--font-weight-regular);
+  --type-body-large-line-height: 1.60;
+  --type-body-large-letter-spacing: 0;
+  --type-body-large-font-family: var(--font-family-body);
+
+
+  /* ---------------------------------------------------------
+     Body
+     --------------------------------------------------------- */
+
+  --type-body-size: 1rem;
+  --type-body-size-mobile: 1rem;
+  --type-body-weight: var(--font-weight-regular);
+  --type-body-line-height: 1.60;
+  --type-body-letter-spacing: 0;
+  --type-body-font-family: var(--font-family-body);
+
+
+  /* ---------------------------------------------------------
+     Small
+     --------------------------------------------------------- */
+
+  --type-small-size: 0.875rem;
+  --type-small-size-mobile: 0.875rem;
+  --type-small-weight: var(--font-weight-regular);
+  --type-small-line-height: 1.50;
+  --type-small-letter-spacing: 0;
+  --type-small-font-family: var(--font-family-body);
+
+
+  /* ---------------------------------------------------------
+     Caption
+     --------------------------------------------------------- */
+
+  --type-caption-size: 0.75rem;
+  --type-caption-size-mobile: 0.75rem;
+  --type-caption-weight: var(--font-weight-regular);
+  --type-caption-line-height: 1.40;
+  --type-caption-letter-spacing: 0.01em;
+  --type-caption-font-family: var(--font-family-body);
+
+
+  /* ---------------------------------------------------------
+     Label
+     --------------------------------------------------------- */
+
+  --type-label-size: 0.875rem;
+  --type-label-size-mobile: 0.875rem;
+  --type-label-weight: var(--font-weight-medium);
+  --type-label-line-height: 1.40;
+  --type-label-letter-spacing: 0.01em;
+  --type-label-font-family: var(--font-family-body);
+
+
+  /* =========================================================
+     11. TYPOGRAPHY — ROLES
+     ========================================================= */
+
+  --text-caption: var(--font-size-xs);
+  --text-label: var(--font-size-sm);
+  --text-body: var(--font-size-md);
+  --text-body-lg: var(--font-size-lg);
+  --text-heading-sm: var(--font-size-xl);
+  --text-heading-md: var(--font-size-2xl);
+  --text-heading-lg: var(--font-size-3xl);
+  --text-heading-xl: var(--font-size-4xl);
+  --text-display-sm: var(--font-size-5xl);
+  --text-display-md: var(--font-size-6xl);
+  --text-display-lg: var(--font-size-7xl);
+
+
+  /* =========================================================
+     12. TYPOGRAPHY — LINE HEIGHT
+     ========================================================= */
+
+  --line-height-tight: 1.05;
+  --line-height-snug: 1.20;
+  --line-height-normal: 1.50;
+  --line-height-relaxed: 1.60;
+
+
+  /* Typography role line heights */
+
+  --line-height-display: var(--type-display-line-height);
+  --line-height-heading: var(--line-height-snug);
+  --line-height-body: var(--type-body-line-height);
+  --line-height-readable: var(--line-height-relaxed);
+
+
+  /* =========================================================
+     13. TYPOGRAPHY — LETTER SPACING
+     ========================================================= */
+
+  --letter-spacing-tighter: -0.03em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.01em;
+  --letter-spacing-display: var(--type-display-letter-spacing);
+  --letter-spacing-h1: var(--type-h1-letter-spacing);
+  --letter-spacing-h2: var(--type-h2-letter-spacing);
+  --letter-spacing-h3: var(--type-h3-letter-spacing);
+  --letter-spacing-h4: var(--type-h4-letter-spacing);
+  --letter-spacing-body: var(--type-body-letter-spacing);
+  --letter-spacing-small: var(--type-small-letter-spacing);
+  --letter-spacing-caption: var(--type-caption-letter-spacing);
+  --letter-spacing-label: var(--type-label-letter-spacing);
+
+
+  /* =========================================================
+     14. SPACING
+     ========================================================= */
+
+  /*
+     Visionaire Code uses a 4px base spacing unit.
+  */
+
+  --space-1: 0.25rem;    /* 4px */
+  --space-2: 0.5rem;     /* 8px */
+  --space-3: 0.75rem;    /* 12px */
+  --space-4: 1rem;       /* 16px */
+  --space-5: 1.25rem;    /* 20px */
+  --space-6: 1.5rem;     /* 24px */
+  --space-8: 2rem;       /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+  --space-32: 8rem;      /* 128px */
+
+
+  /* ---------------------------------------------------------
+     Component Relationship Spacing
+
+     These are structural spacing tokens only.
+     Component visual styling belongs in components.css.
+     --------------------------------------------------------- */
+
+  --component-gap-icon-text: var(--space-2);
+  --component-gap-label-input: var(--space-2);
+  --component-gap-heading-description: var(--space-3);
+  --component-gap-description-cta: var(--space-6);
+  --component-gap-card-title-description: var(--space-2);
+  --component-gap-button-group: var(--space-3);
+  --component-gap-form-fields: var(--space-4);
+  --component-gap-navigation: var(--space-6);
+
+
+  /* ---------------------------------------------------------
+     Component Content Padding
+     --------------------------------------------------------- */
+
+  --component-padding-card: var(--space-6);
+
+
+  /* ---------------------------------------------------------
+     Grid Gaps
+     --------------------------------------------------------- */
+
+  --grid-gap-compact: var(--space-4);     /* 16px */
+  --grid-gap-standard: var(--space-6);    /* 24px */
+  --grid-gap-spacious: var(--space-8);    /* 32px */
+  --grid-gap-large: var(--space-10);      /* 40px */
+
+
+  /* ---------------------------------------------------------
+     Section Spacing
+     --------------------------------------------------------- */
+
+  --section-space-compact: var(--space-12);    /* 48px */
+  --section-space-standard: var(--space-16);   /* 64px */
+  --section-space-large: var(--space-20);      /* 80px */
+  --section-space-major: var(--space-24);      /* 96px */
+
+
+  /* Existing section aliases */
+
+  --section-space-sm: var(--section-space-compact);
+  --section-space-md: var(--section-space-standard);
+  --section-space-lg: var(--section-space-large);
+
+
+  /* ---------------------------------------------------------
+     Page-Level Spacing
+     --------------------------------------------------------- */
+
+  --page-space-min: 5rem;      /* 80px */
+  --page-space-max: 7.5rem;    /* 120px */
+
+
+  /* =========================================================
+     15. LAYOUT — CONTAINERS
+     ========================================================= */
+
+  /*
+     Standard website container:
+     1200px
+
+     Wide visual container:
+     1280px
+  */
+
+  --container-max: 75rem;      /* 1200px */
+  --container-wide: 80rem;     /* 1280px */
+
+
+  /* Existing container scale */
+
+  --container-sm: 40rem;       /* 640px */
+  --container-md: 45rem;       /* 720px */
+  --container-lg: 60rem;       /* 960px */
+  --container-xl: 75rem;       /* 1200px */
+  --container-2xl: 80rem;      /* 1280px */
+  --container-page: var(--container-max);
+
+
+  /* ---------------------------------------------------------
+     Content Width
+     --------------------------------------------------------- */
+
+  --content-long-form: 45rem;  /* 720px */
+  --content-standard: 60rem;   /* 960px */
+  --content-page: 75rem;       /* 1200px */
+  --content-wide: 80rem;       /* 1280px */
+
+
+  /* =========================================================
+     16. LAYOUT — PAGE GUTTERS
+     ========================================================= */
+
+  --page-gutter-mobile: 1.25rem;   /* 20px */
+  --page-gutter-tablet: 1.5rem;    /* 24px */
+  --page-gutter-desktop: 2rem;     /* 32px */
+
+
+  /* =========================================================
+     17. LAYOUT — SECTION SPACING
+     ========================================================= */
+
+  --layout-section-compact: var(--space-12);    /* 48px */
+  --layout-section-standard: var(--space-16);   /* 64px */
+  --layout-section-large: var(--space-20);      /* 80px */
+  --layout-section-major: var(--space-24);      /* 96px */
+
+
+  /* =========================================================
+     18. SHAPE — BORDER RADIUS
+     ========================================================= */
+
+  /*
+     Controlled rounding:
+     refined, modern, and professional.
+  */
+
+  --radius-none: 0;
+  --radius-sm: 0.375rem;       /* 6px */
+  --radius-md: 0.5rem;          /* 8px */
+  --radius-lg: 0.75rem;         /* 12px */
+  --radius-xl: 1rem;            /* 16px */
+  --radius-full: 9999px;
+
+
+  /* =========================================================
+     19. SHAPE — BORDER WIDTH
+     ========================================================= */
+
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+
+
+  /* =========================================================
+     20. ELEVATION — SHADOW
+     ========================================================= */
+
+  /*
+     Shadows communicate surface hierarchy and interaction.
+     They should remain subtle and purposeful.
+  */
+
+  --shadow-none: none;
+  --shadow-sm:
+    0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md:
+    0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg:
+    0 10px 24px rgba(15, 23, 42, 0.10);
+  --shadow-xl:
+    0 20px 40px rgba(15, 23, 42, 0.12);
+
+
+  /* =========================================================
+     21. MOTION — DURATION
+     ========================================================= */
+
+  --motion-fast: 120ms;
+  --motion-normal: 200ms;
+  --motion-medium: 300ms;
+  --motion-slow: 450ms;
+
+
+  /* =========================================================
+     22. MOTION — EASING
+     ========================================================= */
+
+  --ease-standard: ease-in-out;
+  --ease-enter: ease-out;
+  --ease-exit: ease-in;
+
+
+  /* =========================================================
+     23. MOTION — TRANSITIONS
+     ========================================================= */
+
+  --transition-fast:
+    var(--motion-fast) var(--ease-standard);
+  --transition-normal:
+    var(--motion-normal) var(--ease-standard);
+  --transition-medium:
+    var(--motion-medium) var(--ease-standard);
+  --transition-enter:
+    var(--motion-medium) var(--ease-enter);
+  --transition-exit:
+    var(--motion-medium) var(--ease-exit);
+
+
+  /* =========================================================
+     24. RESPONSIVE — BREAKPOINTS
+     ========================================================= */
+
+  --breakpoint-sm: 40rem;       /* 640px */
+  --breakpoint-md: 48rem;       /* 768px */
+  --breakpoint-lg: 64rem;       /* 1024px */
+  --breakpoint-xl: 80rem;       /* 1280px */
+  --breakpoint-2xl: 90rem;      /* 1440px */
+
+
+  /* =========================================================
+     25. ACCESSIBILITY — FOCUS
+     ========================================================= */
+
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--color-brand-primary);
+
+
+  /* =========================================================
+     26. LAYOUT — Z INDEX
+     ========================================================= */
+
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-header: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+
+
+  /* =========================================================
+     27. COMPONENT — CONTROL HEIGHTS
+     ========================================================= */
+
+  /*
+     Generic control sizing only.
+     Component-specific button/input styling belongs in
+     components.css.
+  */
+
+  --control-height-sm: 2rem;     /* 32px */
+  --control-height-md: 2.5rem;   /* 40px */
+  --control-height-lg: 3rem;     /* 48px */
+
+
+  /* =========================================================
+     28. COMPONENT — CONTENT WIDTH
+     ========================================================= */
+
+  --content-readable: 45rem;     /* 720px */
+  --content-narrow: 36rem;       /* 576px */
+
+
+  /* =========================================================
+     29. ICONOGRAPHY — SIZE
+     ========================================================= */
+
+  /*
+     Primary UI icon system:
+     Lucide Icons
+
+     Default UI icon size: 20px
+  */
+
+  --icon-size-xs: 0.875rem;      /* 14px */
+  --icon-size-sm: 1rem;          /* 16px */
+  --icon-size-md: 1.25rem;       /* 20px */
+  --icon-size-lg: 1.5rem;        /* 24px */
+  --icon-size-xl: 2rem;          /* 32px */
+  --icon-size-2xl: 2.5rem;       /* 40px */
+  --icon-size-feature: 3rem;     /* 48px */
+
+
+  /* =========================================================
+     30. ICONOGRAPHY — STROKE
+     ========================================================= */
+
+  --icon-stroke-width: 1.875px;
+
+
+}
