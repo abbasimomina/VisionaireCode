@@ -708,20 +708,26 @@
 .services-overview {
   position: relative;
   overflow: hidden;
+
   padding-block: var(--space-20);
+
   background-color: var(--color-surface-secondary);
 }
 
-/* ========================================
+
+/* =========================================================
    HEADER
-   ======================================== */
+   ========================================================= */
 
 .services-overview__header {
   display: grid;
+
   grid-template-columns:
     minmax(0, 1fr)
     minmax(0, 0.8fr);
+
   align-items: center;
+
   gap: var(--space-16);
 }
 
@@ -731,129 +737,170 @@
 
 .services-overview__eyebrow {
   display: inline-flex;
+
   align-items: center;
+
   gap: var(--space-3);
+
   margin: 0 0 var(--space-5);
+
   color: var(--color-brand-primary);
+
   font-family: var(--font-family-body);
+
   font-size: var(--font-size-sm);
+
   font-weight: var(--font-weight-semibold);
+
   line-height: var(--line-height-normal);
+
   letter-spacing: var(--letter-spacing-wide);
+
   text-transform: uppercase;
 }
 
 .services-overview__eyebrow::before {
   content: "";
+
   width: 2rem;
   height: 1px;
+
   flex-shrink: 0;
+
   background-color: var(--color-brand-primary);
 }
 
 .services-overview__title {
   max-width: 18ch;
+
   margin: 0;
+
   color: var(--color-text-primary);
+
   font-family: var(--font-family-display);
+
   font-size: clamp(
     var(--font-size-4xl),
     4.5vw,
     var(--font-size-6xl)
   );
+
   font-weight: var(--font-weight-bold);
+
   line-height: 1;
+
   letter-spacing: var(--letter-spacing-tighter);
 }
 
 .services-overview__introduction {
   width: 100%;
+
   max-width: 36rem;
+
   justify-self: end;
 }
 
 .services-overview__introduction p {
   margin: 0;
+
   color: var(--color-text-secondary);
+
   font-family: var(--font-family-body);
+
   font-size: var(--font-size-lg);
+
   font-weight: var(--font-weight-regular);
+
   line-height: var(--line-height-relaxed);
 }
 
-/* ========================================
-   PRINCIPLES
-   ======================================== */
 
-.services-overview__principles {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-5);
+/* =========================================================
+   PRINCIPLES SLIDER
+   ========================================================= */
+
+.services-overview__slider {
   margin-top: var(--space-16);
 }
+
+
+/* =========================================================
+   PRINCIPLE CARD
+   ========================================================= */
 
 .services-overview__card {
   min-height: 18.5rem;
 }
 
-.services-overview__card-header {
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-4);
-}
 
-.services-overview__card-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  flex-shrink: 0;
-  border: var(--border-width-thin) solid var(--color-border-primary);
-  border-radius: var(--radius-md);
-  background-color: var(--color-surface-primary);
-  color: var(--color-brand-primary);
-  transition:
-    border-color var(--transition-fast),
-    background-color var(--transition-fast),
-    transform var(--transition-fast);
-}
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
 
 .services-overview__card-content {
+  position: relative;
+
+  z-index: 2;
+
   margin-top: auto;
+
   padding-top: var(--space-10);
 }
 
 .services-overview__card-content h3 {
   max-width: 18ch;
+
   margin: 0;
+
   color: var(--color-text-primary);
+
   font-family: var(--font-family-display);
+
   font-size: var(--font-size-xl);
+
   font-weight: var(--font-weight-semibold);
+
   line-height: var(--line-height-tight);
 }
 
 .services-overview__card-content p {
   max-width: 32rem;
+
   margin: var(--space-4) 0 0;
+
   color: var(--color-text-secondary);
+
   font-family: var(--font-family-body);
+
   font-size: var(--font-size-sm);
+
   font-weight: var(--font-weight-regular);
+
   line-height: var(--line-height-relaxed);
 }
 
+
+/* =========================================================
+   CARD FOOTER
+   ========================================================= */
+
 .services-overview__card-footer {
+  position: relative;
+
+  z-index: 2;
+
   margin-top: var(--space-6);
+
   gap: var(--space-3);
 }
 
 .services-overview__card-line {
   width: 2.5rem;
+
   height: 1px;
+
   background-color: var(--color-border-secondary);
+
   transition:
     width var(--transition-fast),
     background-color var(--transition-fast);
@@ -861,60 +908,75 @@
 
 .services-overview__card-mark {
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
+
   width: 1.75rem;
   height: 1.75rem;
-  border: 1px solid var(--color-border-primary);
+
+  border:
+    1px solid
+    var(--color-border-primary);
+
   border-radius: var(--radius-full);
+
   color: var(--color-brand-primary);
+
   font-family: var(--font-family-body);
+
   font-size: var(--font-size-sm);
+
   line-height: 1;
+
   opacity: 0.7;
+
   transition:
     border-color var(--transition-fast),
     background-color var(--transition-fast),
-    transform var(--transition-fast);
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
 }
 
-/* ========================================
-   HOVER
-   ======================================== */
 
-.services-overview__card:hover {
-  border-color: var(--color-brand-primary);
-  box-shadow: var(--shadow-md);
+/* =========================================================
+   CARD INTERACTION
+   ========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .services-overview__card:hover
+    .services-overview__card-line {
+    width: 4rem;
+
+    background-color: var(--color-brand-primary);
+  }
+
+  .services-overview__card:hover
+    .services-overview__card-mark {
+    border-color: var(--color-brand-primary);
+
+    background-color: var(--color-brand-primary-light);
+
+    opacity: 1;
+
+    transform:
+      translate(
+        0.125rem,
+        -0.125rem
+      );
+  }
+
 }
 
-.services-overview__card:hover
-  .services-overview__card-icon {
-  border-color: var(--color-brand-primary);
-  background-color: var(--color-brand-primary-light);
-}
 
-.services-overview__card:hover
-  .services-overview__card-line {
-  width: 4rem;
-  background-color: var(--color-brand-primary);
-}
-
-.services-overview__card:hover
-  .services-overview__card-mark {
-  border-color: var(--color-brand-primary);
-  background-color: var(--color-brand-primary-light);
-  opacity: 1;
-  transform: translate(
-    0.125rem,
-    -0.125rem
-  );
-}
-
-/* ========================================
+/* =========================================================
    TABLET
-   ======================================== */
+   ========================================================= */
 
 @media (max-width: 64rem) {
+
   .services-overview {
     padding-block: var(--space-16);
   }
@@ -931,31 +993,36 @@
     );
   }
 
-  .services-overview__principles {
+  .services-overview__slider {
     margin-top: var(--space-12);
-    grid-template-columns: repeat(
-      2,
-      minmax(0, 1fr)
-    );
   }
+
+  .services-overview__card {
+    min-height: 18rem;
+  }
+
 }
 
-/* ========================================
+
+/* =========================================================
    MOBILE
-   ======================================== */
+   ========================================================= */
 
 @media (max-width: 48rem) {
+
   .services-overview {
     padding-block: var(--space-14);
   }
 
   .services-overview__header {
     grid-template-columns: 1fr;
+
     gap: var(--space-8);
   }
 
   .services-overview__introduction {
     justify-self: start;
+
     max-width: 40rem;
   }
 
@@ -963,24 +1030,28 @@
     max-width: 18ch;
   }
 
-  .services-overview__principles {
-    grid-template-columns: 1fr;
-    margin-top: var(--space-12);
+  .services-overview__slider {
+    margin-top: var(--space-10);
   }
+
 }
 
-/* ========================================
+
+/* =========================================================
    SMALL MOBILE
-   ======================================== */
+   ========================================================= */
 
 @media (max-width: 30rem) {
+
   .services-overview {
     padding-block: var(--space-10);
   }
 
   .services-overview__eyebrow {
     gap: var(--space-2);
+
     margin-bottom: var(--space-4);
+
     font-size: var(--font-size-xs);
   }
 
@@ -990,7 +1061,9 @@
 
   .services-overview__title {
     max-width: 100%;
+
     font-size: var(--font-size-4xl);
+
     line-height: 1;
   }
 
@@ -998,18 +1071,23 @@
     font-size: var(--font-size-md);
   }
 
-  .services-overview__principles {
-    margin-top: var(--space-10);
+  .services-overview__slider {
+    margin-top: var(--space-8);
   }
+
+  .services-overview__card {
+    min-height: 17rem;
+  }
+
 }
 
-/* ========================================
+
+/* =========================================================
    REDUCED MOTION
-   ======================================== */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .services-overview__card,
-  .services-overview__card-icon,
+
   .services-overview__card-line,
   .services-overview__card-mark {
     transition: none;
@@ -1019,4 +1097,5 @@
     .services-overview__card-mark {
     transform: none;
   }
+
 }

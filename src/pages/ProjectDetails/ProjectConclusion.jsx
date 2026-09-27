@@ -7,30 +7,25 @@ import {
 import { Container } from "../../components/layout/Container.jsx"
 import { Section } from "../../components/layout/Section.jsx"
 import { Card } from "../../components/ui/Card.jsx"
+import { Slider } from "../../components/ui/Slider.jsx"
 
 const ProjectConclusion = ({ project }) => {
   const conclusionItems = [
     {
       key: "lessons",
       title: "Lessons Learned",
-      description:
-        "Key insights and experience gained throughout the development process.",
       items: project.lessonsLearned,
       icon: LuBookOpen,
     },
     {
       key: "limitations",
       title: "Project Limitations",
-      description:
-        "Current constraints, gaps, or areas that remain outside the project's present scope.",
       items: project.limitations,
       icon: LuCircleAlert,
     },
     {
       key: "future",
       title: "Future Improvements",
-      description:
-        "Potential improvements and directions for extending the project in the future.",
       items: project.futureImprovements,
       icon: LuRefreshCw,
     },
@@ -59,16 +54,14 @@ const ProjectConclusion = ({ project }) => {
               What Comes Next
             </h2>
           </div>
-
-          <div className="project-conclusion__introduction">
-            <p>
-              A reflection on what the project achieved, what remains,
-              and where it can evolve next.
-            </p>
-          </div>
         </header>
 
-        <div className="project-conclusion__grid">
+        <Slider
+          ariaLabel="Project conclusion"
+          previousLabel="Previous conclusion"
+          nextLabel="Next conclusion"
+          className="project-conclusion__slider"
+        >
           {conclusionItems.map((item) => {
             const Icon = item.icon
 
@@ -90,10 +83,6 @@ const ProjectConclusion = ({ project }) => {
 
                 <div className="project-conclusion__card-content">
                   <h3>{item.title}</h3>
-
-                  <p className="project-conclusion__description">
-                    {item.description}
-                  </p>
 
                   <ul className="project-conclusion__list">
                     {item.items.map((entry, index) => (
@@ -124,7 +113,7 @@ const ProjectConclusion = ({ project }) => {
               </Card>
             )
           })}
-        </div>
+        </Slider>
       </Container>
     </Section>
   )

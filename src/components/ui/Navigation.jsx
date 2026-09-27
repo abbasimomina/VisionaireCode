@@ -32,11 +32,9 @@ export function Navigation({
               className="navigation__link"
               onClick={onNavigate}
             >
-                <>
-                  <span className="navigation__label">
-                    {label}
-                  </span>
-                </>
+              <span className="navigation__label">
+                {label}
+              </span>
             </NavLink>
           </li>
         ))}

@@ -3,6 +3,7 @@ export function Card({
   variant = "default",
   padding = "default",
   interactive = false,
+  visual = null,
   className = "",
   ...props
 }) {
@@ -10,6 +11,7 @@ export function Card({
     "card",
     `card--${variant}`,
     `card--padding-${padding}`,
+    visual && "card--has-visual",
     interactive && "card--interactive",
     className,
   ]
@@ -18,6 +20,7 @@ export function Card({
 
   return (
     <article className={classes} {...props}>
+      {visual}
       {children}
     </article>
   )
@@ -76,6 +79,22 @@ export function CardMedia({
   return (
     <div
       className={`card__media ${className}`.trim()}
+      {...props}
+    >
+      {children}
+    </div>
+  )
+}
+
+export function CardVisual({
+  children,
+  variant = "default",
+  className = "",
+  ...props
+}) {
+  return (
+    <div
+      className={`card__visual card__visual--${variant} ${className}`.trim()}
       {...props}
     >
       {children}

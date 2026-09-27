@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 import { Container } from "../layout/Container.jsx"
 import { Button } from "../ui/Button.jsx"
 
@@ -14,7 +16,7 @@ export function HeroSection({
 }) {
   return (
     <section
-      className={`hero-section ${className}`.trim()}
+      className={`hero-section background-atmosphere ${className}`.trim()}
       aria-labelledby="hero-section-title"
     >
       <Container>
@@ -47,8 +49,8 @@ export function HeroSection({
 
                 {primaryAction && (
                   <Button
-                    as="a"
-                    href={primaryAction.href}
+                    as={Link}
+                    to={primaryAction.href}
                     variant={primaryAction.variant || "primary"}
                     size={primaryAction.size || "lg"}
                   >
@@ -58,8 +60,8 @@ export function HeroSection({
 
                 {secondaryAction && (
                   <Button
-                    as="a"
-                    href={secondaryAction.href}
+                    as={Link}
+                    to={secondaryAction.href}
                     variant={secondaryAction.variant || "secondary"}
                     size={secondaryAction.size || "lg"}
                   >

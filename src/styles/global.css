@@ -1,24 +1,10 @@
-/* =========================================================
-   VISIONAIRE CODE — GLOBAL STYLES
-
-   Version: 1.0
-
-   Purpose:
-   Global document defaults, typography foundation,
-   accessibility, media normalization, and site shell.
-
-   Component, section, and layout-specific styles belong
-   in their respective CSS files.
-
-   ========================================================= */
-
 @import "./tokens.css";
 @import "./layout.css";
 @import "./components.css";
 
 
 /* =========================================================
-   01. ROOT
+   ROOT
    ========================================================= */
 
 :root {
@@ -27,7 +13,7 @@
 
 
 /* =========================================================
-   02. BOX SIZING
+   BOX MODEL
    ========================================================= */
 
 *,
@@ -38,7 +24,7 @@
 
 
 /* =========================================================
-   03. DOCUMENT
+   DOCUMENT
    ========================================================= */
 
 html {
@@ -53,45 +39,96 @@ body {
   min-height: 100vh;
   margin: 0;
 
-  background-color: var(--color-surface-background);
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      var(--background-white-illumination),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 15% 25%,
+      var(--background-primary-glow),
+      transparent var(--background-glow-size)
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      var(--background-accent-glow),
+      transparent var(--background-glow-size)
+    ),
+    linear-gradient(
+      var(--background-grid-color) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      var(--background-grid-color) 1px,
+      transparent 1px
+    ),
+    var(--background-base);
+
+  background-size:
+    auto,
+    auto,
+    auto,
+    var(--background-grid-size) var(--background-grid-size),
+    var(--background-grid-size) var(--background-grid-size),
+    auto;
+
   color: var(--color-text-primary);
 
   font-family: var(--font-family-body);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
-  letter-spacing: var(--type-body-letter-spacing);
 
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 
 /* =========================================================
-   04. TYPOGRAPHY FOUNDATION
+   BODY ATMOSPHERE
    ========================================================= */
 
-/*
-   Headings use Space Grotesk to establish Visionaire Code
-   visual personality.
+body::before {
+  content: "";
 
-   Body content uses Inter for readability.
+  position: fixed;
+  inset: 0;
 
-   Semantic heading hierarchy is preserved.
-*/
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgb(255 255 255 / 0.42),
+      transparent 48%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgb(23 32 51 / 0.018) 100%
+    );
+}
+
+
 /* =========================================================
-   04. TYPOGRAPHY FOUNDATION
+   SITE SHELL
    ========================================================= */
 
-/*
-   Headings use Space Grotesk to establish Visionaire Code
-   visual personality.
+#root {
+  min-height: 100vh;
+}
 
-   Body content uses Inter for readability.
+.site {
+  min-height: 100vh;
+}
 
-   Semantic heading hierarchy is preserved.
-*/
+
+/* =========================================================
+   TYPOGRAPHY RESET
+   ========================================================= */
 
 h1,
 h2,
@@ -99,9 +136,31 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+ul,
+ol,
+figure,
+blockquote {
   margin: 0;
 }
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
 
 h1,
 h2,
@@ -111,11 +170,12 @@ h5,
 h6 {
   color: var(--color-text-primary);
   font-family: var(--font-family-display);
+  font-weight: var(--font-weight-bold);
 }
 
 
 /* ---------------------------------------------------------
-   Heading Hierarchy
+   H1
    --------------------------------------------------------- */
 
 h1 {
@@ -125,12 +185,22 @@ h1 {
   letter-spacing: var(--type-h1-letter-spacing);
 }
 
+
+/* ---------------------------------------------------------
+   H2
+   --------------------------------------------------------- */
+
 h2 {
   font-size: var(--type-h2-size-mobile);
   font-weight: var(--type-h2-weight);
   line-height: var(--type-h2-line-height);
   letter-spacing: var(--type-h2-letter-spacing);
 }
+
+
+/* ---------------------------------------------------------
+   H3
+   --------------------------------------------------------- */
 
 h3 {
   font-size: var(--type-h3-size-mobile);
@@ -139,6 +209,11 @@ h3 {
   letter-spacing: var(--type-h3-letter-spacing);
 }
 
+
+/* ---------------------------------------------------------
+   H4
+   --------------------------------------------------------- */
+
 h4 {
   font-size: var(--type-h4-size-mobile);
   font-weight: var(--type-h4-weight);
@@ -146,36 +221,245 @@ h4 {
   letter-spacing: var(--type-h4-letter-spacing);
 }
 
+
+/* ---------------------------------------------------------
+   H5 / H6
+   --------------------------------------------------------- */
+
 h5,
 h6 {
-  font-family: var(--font-family-display);
   font-size: var(--type-h4-size-mobile);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-snug);
-  letter-spacing: var(--letter-spacing-normal);
+  font-weight: var(--type-h4-weight);
+  line-height: var(--type-h4-line-height);
+  letter-spacing: var(--type-h4-letter-spacing);
 }
 
 
-/* ---------------------------------------------------------
-   Paragraphs
-   --------------------------------------------------------- */
+/* =========================================================
+   BODY TEXT
+   ========================================================= */
 
 p {
   color: var(--color-text-secondary);
-  font-family: var(--type-body-font-family);
   font-size: var(--type-body-size-mobile);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
-  letter-spacing: var(--type-body-letter-spacing);
 }
 
 
 /* ---------------------------------------------------------
-   Desktop Typography
+   Strong / Emphasis
    --------------------------------------------------------- */
 
-@media (min-width: 64rem) {
+strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
 
+em {
+  font-style: italic;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([class]) {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+
+  transition:
+    color var(--motion-fast) var(--ease-standard);
+}
+
+a:not([class]):hover {
+  color: var(--color-brand-primary-hover);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button {
+  border: 0;
+  padding: 0;
+
+  color: inherit;
+  background: none;
+
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MEDIA
+   ========================================================= */
+
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+input,
+textarea,
+select {
+  color: var(--color-text-primary);
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  color: var(--color-text-on-brand);
+  background: var(--color-brand-primary);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color:
+    var(--color-neutral-400)
+    var(--color-neutral-100);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-400);
+  border: 3px solid var(--color-neutral-100);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-500);
+}
+
+
+/* =========================================================
+   BACKGROUND VARIANTS
+   ========================================================= */
+
+.background-secondary {
+  position: relative;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgb(37 99 235 / 0.045),
+      transparent 36rem
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgb(34 211 238 / 0.025),
+      transparent 34rem
+    ),
+    var(--color-surface-secondary);
+
+  border-block:
+    1px solid var(--color-border-subtle);
+}
+
+
+/* =========================================================
+   CODE / MONOSPACE
+   ========================================================= */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-family-mono);
+}
+
+code {
+  font-size: 0.9em;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+:focus-visible {
+  outline:
+    var(--focus-width)
+    solid
+    var(--color-border-focus);
+
+  outline-offset: var(--focus-offset);
+}
+
+
+/* =========================================================
+   HORIZONTAL RULE
+   ========================================================= */
+
+hr {
+  height: 1px;
+  margin: 0;
+
+  border: 0;
+  background: var(--color-border-default);
+}
+
+
+/* =========================================================
+   DESKTOP TYPOGRAPHY
+   ========================================================= */
+
+@media (min-width: 768px) {
   h1 {
     font-size: var(--type-h1-size);
   }
@@ -202,45 +486,22 @@ p {
   }
 }
 
-/* =========================================================
-   12. SELECTION
-   ========================================================= */
-
-::selection {
-  background-color: var(--color-brand-primary-light);
-  color: var(--color-text-primary);
-}
-
 
 /* =========================================================
-   13. SCROLLBAR
+   REDUCED MOTION
    ========================================================= */
 
-html {
-  scrollbar-width: thin;
-  scrollbar-color:
-    var(--color-neutral-400)
-    var(--color-neutral-100);
-}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-
-/* =========================================================
-   14. SITE SHELL
-   ========================================================= */
-
-/*
-   The site shell is structural and global.
-
-   More detailed layout rules belong in layout.css.
-*/
-
-.site {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.site__main {
-  flex: 1;
-  width: 100%;
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

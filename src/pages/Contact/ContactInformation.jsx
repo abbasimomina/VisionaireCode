@@ -5,7 +5,12 @@ import {
 } from "react-icons/lu"
 
 import { Container } from "../../components/layout/Container.jsx"
-import { Card } from "../../components/ui/Card.jsx"
+
+import {
+  Card,
+  CardContent,
+  CardVisual,
+} from "../../components/ui/Card.jsx"
 
 const contactMethods = [
   {
@@ -38,6 +43,7 @@ const contactMethods = [
     external: true,
   },
 ]
+
 
 export function ContactInformation() {
   return (
@@ -78,22 +84,22 @@ export function ContactInformation() {
                 key={method.id}
                 variant="default"
                 padding="default"
+                interactive
                 className="contact-information__card"
+                visual={
+                  <CardVisual variant="service">
+                    <Icon
+                      aria-hidden="true"
+                      strokeWidth={1.15}
+                    />
+                  </CardVisual>
+                }
               >
-                <div className="contact-information__card-header">
-                  <span
-                    className="contact-information__icon"
-                    aria-hidden="true"
-                  >
-                    <Icon size={20} strokeWidth={1.8} />
-                  </span>
-                </div>
-
-                <div className="contact-information__card-content">
+                <CardContent className="contact-information__card-content">
                   <h3>{method.title}</h3>
 
                   <p>{method.description}</p>
-                </div>
+                </CardContent>
 
                 <div className="contact-information__card-footer">
                   <a

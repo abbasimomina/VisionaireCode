@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 import { Container } from "../layout/Container.jsx"
 
 const exploreLinks = [
@@ -15,15 +17,14 @@ export function Footer() {
       <Container>
         <div className="site-footer__main">
 
-          {/* Brand */}
           <div className="site-footer__brand">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="site-footer__brand-name"
               aria-label="Visionaire Code home"
             >
               Visionaire Code
-            </a>
+            </Link>
 
             <p className="site-footer__description">
               Modern websites, applications, and digital
@@ -31,7 +32,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Navigation */}
           <nav
             className="site-footer__navigation"
             aria-label="Footer navigation"
@@ -44,9 +44,9 @@ export function Footer() {
               <ul className="site-footer__links">
                 {exploreLinks.map(({ label, href }) => (
                   <li key={href}>
-                    <a href={href}>
+                    <Link to={href}>
                       {label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -59,16 +59,10 @@ export function Footer() {
 
               <ul className="site-footer__links">
                 <li>
-                  <a href="/contact">
+                  <Link to="/contact">
                     Get in Touch
-                  </a>
+                  </Link>
                 </li>
-
-                {/* <li>
-                  <a href="mailto:hello@visionairecode.com">
-                    hello@visionairecode.com
-                  </a>
-                </li> */}
               </ul>
             </div>
           </nav>

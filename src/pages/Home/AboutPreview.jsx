@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+
 import {
   LuCompass,
   LuLayers3,
@@ -9,13 +10,12 @@ import { Container } from "../../components/layout/Container.jsx"
 
 import {
   Card,
-  CardHeader,
   CardContent,
   CardFooter,
+  CardVisual,
 } from "../../components/ui/Card.jsx"
 
 import { Button } from "../../components/ui/Button.jsx"
-
 
 const principles = [
   {
@@ -41,7 +41,7 @@ const principles = [
 export function AboutPreview() {
   return (
     <section
-      className="about-preview"
+      className="about-preview background-primary"
       aria-labelledby="about-preview-title"
     >
       <Container>
@@ -86,24 +86,17 @@ export function AboutPreview() {
                 key={principle.title}
                 variant="default"
                 padding="default"
+                interactive
                 className="about-preview__card"
-              >
-                <CardHeader className="about-preview__card-header">
-                  <span
-                    className="about-preview__card-icon"
-                    aria-hidden="true"
-                  >
+                visual={
+                  <CardVisual variant="service">
                     <Icon
-                      size={20}
-                      strokeWidth={1.8}
+                      aria-hidden="true"
+                      strokeWidth={1.15}
                     />
-                  </span>
-{/* 
-                  <span className="about-preview__card-number">
-                    {principle.number}
-                  </span> */}
-                </CardHeader>
-
+                  </CardVisual>
+                }
+              >
                 <CardContent className="about-preview__card-content">
                   <h3>{principle.title}</h3>
 

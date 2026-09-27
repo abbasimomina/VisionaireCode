@@ -3,6 +3,7 @@ import { LuCheck } from "react-icons/lu"
 import { Container } from "../../components/layout/Container.jsx"
 import { Section } from "../../components/layout/Section.jsx"
 import { Card } from "../../components/ui/Card.jsx"
+import { Slider } from "../../components/ui/Slider.jsx"
 
 const ProjectFeatures = ({ project }) => {
   if (!project.features?.length) {
@@ -28,16 +29,14 @@ const ProjectFeatures = ({ project }) => {
               Key Features
             </h2>
           </div>
-
-          <div className="project-features__introduction">
-            <p>
-              The core capabilities designed to support the project's
-              users, workflows, and objectives.
-            </p>
-          </div>
         </header>
 
-        <div className="project-features__grid">
+        <Slider
+          ariaLabel="Project features"
+          previousLabel="Previous features"
+          nextLabel="Next features"
+          className="project-features__slider"
+        >
           {project.features.map((feature, index) => (
             <Card
               key={`${feature.title}-${index}`}
@@ -78,7 +77,7 @@ const ProjectFeatures = ({ project }) => {
               </footer>
             </Card>
           ))}
-        </div>
+        </Slider>
       </Container>
     </Section>
   )

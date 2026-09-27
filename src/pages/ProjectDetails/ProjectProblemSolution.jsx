@@ -34,13 +34,6 @@ const ProjectProblemSolution = ({ project }) => {
               The Challenge &amp; Solution
             </h2>
           </div>
-
-          <div className="project-problem-solution__introduction">
-            <p>
-              Understanding the problem provides the foundation for
-              designing a practical and purposeful solution.
-            </p>
-          </div>
         </header>
 
         <div className="project-problem-solution__grid">
@@ -64,10 +57,6 @@ const ProjectProblemSolution = ({ project }) => {
                   The Challenge
                 </p>
 
-                <h3 className="project-problem-solution__card-title">
-                  Identifying the problem
-                </h3>
-
                 <p className="project-problem-solution__description">
                   {project.problem}
                 </p>
@@ -75,6 +64,7 @@ const ProjectProblemSolution = ({ project }) => {
 
               <footer className="project-problem-solution__card-footer">
                 <span className="project-problem-solution__line" />
+
                 <span
                   className="project-problem-solution__mark"
                   aria-hidden="true"
@@ -105,10 +95,6 @@ const ProjectProblemSolution = ({ project }) => {
                   The Solution
                 </p>
 
-                <h3 className="project-problem-solution__card-title">
-                  Building a practical solution
-                </h3>
-
                 <p className="project-problem-solution__description">
                   {project.solution}
                 </p>
@@ -116,6 +102,7 @@ const ProjectProblemSolution = ({ project }) => {
 
               <footer className="project-problem-solution__card-footer">
                 <span className="project-problem-solution__line" />
+
                 <span
                   className="project-problem-solution__mark"
                   aria-hidden="true"

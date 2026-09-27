@@ -1,25 +1,24 @@
 /* =========================================================
-   TECHNOLOGY STACK SECTION
-   ========================================================= */
+   Visionaire Code — Technology Stack Section
+========================================================= */
 
 .technology-stack-section {
   position: relative;
   overflow: hidden;
-  padding-block: var(--space-20);
-  background-color: var(--color-surface-secondary);
+  padding-block: var(--space-12);
 }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+/* -------------------------
+   Section Header
+------------------------- */
 
 .technology-stack-section__header {
   display: grid;
   grid-template-columns:
     minmax(0, 1fr)
     minmax(0, 0.8fr);
-  align-items: center;
-  gap: var(--space-16);
+  align-items: end;
+  gap: var(--space-10);
 }
 
 .technology-stack-section__heading {
@@ -29,28 +28,23 @@
 .technology-stack-section__eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
-
-  margin: 0 0 var(--space-5);
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
 
   color: var(--color-brand-primary);
-
   font-family: var(--font-family-body);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-normal);
-  letter-spacing: var(--letter-spacing-wide);
-
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .technology-stack-section__eyebrow::before {
   content: "";
-
-  width: 2rem;
+  width: var(--space-8);
   height: 1px;
   flex-shrink: 0;
-
   background-color: var(--color-brand-primary);
 }
 
@@ -59,16 +53,16 @@
   margin: 0;
 
   color: var(--color-text-primary);
-
   font-family: var(--font-family-display);
-  font-size: clamp(
-    var(--font-size-4xl),
-    4.5vw,
-    var(--font-size-6xl)
-  );
+  font-size:
+    clamp(
+      var(--font-size-3xl),
+      4vw,
+      var(--font-size-5xl)
+    );
   font-weight: var(--font-weight-bold);
-  line-height: 1;
-  letter-spacing: var(--letter-spacing-tighter);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 .technology-stack-section__introduction {
@@ -81,295 +75,218 @@
   margin: 0;
 
   color: var(--color-text-secondary);
-
   font-family: var(--font-family-body);
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-relaxed);
+  line-height: 1.6;
 }
 
-/* =========================================================
-   TECHNOLOGY GRID
-   ========================================================= */
+/* -------------------------
+   Technology Grid
+------------------------- */
 
 .technology-stack-section__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-5);
-
-  margin-top: var(--space-16);
-}
-
-/* =========================================================
-   TECHNOLOGY CARD
-   ========================================================= */
-
-.technology-stack-section__card {
-  min-width: 0;
-  min-height: 18.5rem;
-}
-
-/* =========================================================
-   CARD HEADER
-   ========================================================= */
-
-.technology-stack-section__card-header {
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
   gap: var(--space-4);
+  margin-top: var(--space-8);
 }
 
-.technology-stack-section__card-icon {
-  display: inline-flex;
+/* -------------------------
+   Technology Group
+------------------------- */
+
+.technology-stack-section__group {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  min-width: 0;
+  min-height: 9rem;
+  padding: var(--space-5);
+
+  overflow: hidden;
+  isolation: isolate;
+
+  border:
+    var(--border-width-thin)
+    solid
+    var(--color-border-default);
+  border-radius: var(--radius-lg);
+
+  background-color: var(--color-surface-primary);
+
+  transition:
+    border-color var(--motion-fast) var(--ease-standard),
+    background-color var(--motion-fast) var(--ease-standard),
+    box-shadow var(--motion-fast) var(--ease-standard),
+    transform var(--motion-fast) var(--ease-standard);
+}
+
+.technology-stack-section__group:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-0.125rem);
+}
+
+/* -------------------------
+   Background Icon
+------------------------- */
+
+.technology-stack-section__visual {
+  position: absolute;
+  z-index: -1;
+  top: -1rem;
+  right: -0.75rem;
+
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 2.75rem;
-  height: 2.75rem;
-  flex-shrink: 0;
-
-  border: var(--border-width-thin)
-    solid var(--color-border-primary);
-
-  border-radius: var(--radius-md);
-
-  background-color: var(--color-surface-secondary);
+  width: 8rem;
+  height: 8rem;
 
   color: var(--color-brand-primary);
+  opacity: 0.07;
+  pointer-events: none;
 
   transition:
-    border-color var(--transition-fast),
-    background-color var(--transition-fast);
+    opacity var(--motion-fast) var(--ease-standard),
+    transform var(--motion-fast) var(--ease-standard);
 }
 
-/* =========================================================
-   CARD CONTENT
-   ========================================================= */
+.technology-stack-section__visual svg {
+  width: 100%;
+  height: 100%;
+}
 
-.technology-stack-section__card-content {
+.technology-stack-section__group:hover
+.technology-stack-section__visual {
+  opacity: 0.12;
+  transform: scale(1.05);
+}
+
+/* -------------------------
+   Content
+------------------------- */
+
+.technology-stack-section__content {
+  position: relative;
+  z-index: 1;
+
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
 
-  margin-top: auto;
-  padding-top: var(--space-10);
+  width: 100%;
+  min-width: 0;
 }
 
 .technology-stack-section__group-title {
-  max-width: 18ch;
+  max-width: 100%;
   margin: 0;
 
   color: var(--color-text-primary);
-
   font-family: var(--font-family-display);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-tight);
 }
 
-.technology-stack-section__group-description {
-  max-width: 32rem;
-  margin: var(--space-4) 0 0;
-
-  color: var(--color-text-secondary);
-
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-relaxed);
-}
-
-/* =========================================================
-   TECHNOLOGY TAGS
-   ========================================================= */
+/* -------------------------
+   Technology Tags
+------------------------- */
 
 .technology-stack-section__technologies {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-
   gap: var(--space-2);
-
-  margin-top: var(--space-6);
+  min-width: 0;
 }
 
 .technology-stack-section__technology {
   display: inline-flex;
   align-items: center;
 
-  min-height: 2.25rem;
+  min-height: 1.75rem;
+  padding:
+    var(--space-1)
+    var(--space-2);
 
-  padding: var(--space-2) var(--space-3);
-
-  border: var(--border-width-thin)
-    solid var(--color-border-subtle);
-
+  border:
+    var(--border-width-thin)
+    solid
+    var(--color-border-subtle);
   border-radius: var(--radius-sm);
 
-  background-color: var(--color-surface-primary);
+  background-color: var(--color-surface-secondary);
 
   color: var(--color-text-secondary);
-
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-mono);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-normal);
-
   white-space: nowrap;
-}
-
-/* =========================================================
-   CARD FOOTER
-   ========================================================= */
-
-.technology-stack-section__card-footer {
-  margin-top: var(--space-6);
-  gap: var(--space-3);
-}
-
-.technology-stack-section__card-line {
-  width: 2.5rem;
-  height: 1px;
-
-  background-color: var(--color-border-secondary);
 
   transition:
-    width var(--transition-fast),
-    background-color var(--transition-fast);
+    border-color var(--motion-fast) var(--ease-standard),
+    color var(--motion-fast) var(--ease-standard),
+    background-color var(--motion-fast) var(--ease-standard);
 }
 
-.technology-stack-section__card-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 1.75rem;
-  height: 1.75rem;
-
-  border: 1px solid var(--color-border-primary);
-  border-radius: var(--radius-full);
-
+.technology-stack-section__technology:hover {
+  border-color: var(--color-border-brand);
+  background-color: var(--color-surface-brand-subtle);
   color: var(--color-brand-primary);
-
-  font-size: var(--font-size-sm);
-  line-height: 1;
-
-  opacity: 0.7;
-
-  transition:
-    border-color var(--transition-fast),
-    background-color var(--transition-fast),
-    transform var(--transition-fast);
 }
 
-/* =========================================================
-   CARD INTERACTION
-   ========================================================= */
-
-.technology-stack-section__card:hover {
-  border-color: var(--color-brand-primary);
-  box-shadow: var(--shadow-md);
-}
-
-.technology-stack-section__card:hover
-  .technology-stack-section__card-icon {
-  border-color: var(--color-brand-primary);
-  background-color: var(--color-brand-primary-light);
-}
-
-.technology-stack-section__card:hover
-  .technology-stack-section__card-line {
-  width: 4rem;
-  background-color: var(--color-brand-primary);
-}
-
-.technology-stack-section__card:hover
-  .technology-stack-section__card-mark {
-  border-color: var(--color-brand-primary);
-  background-color: var(--color-brand-primary-light);
-  opacity: 1;
-
-  transform: translate(
-    0.125rem,
-    -0.125rem
-  );
-}
-
-/* =========================================================
-   PRINCIPLE
-   ========================================================= */
-
-.technology-stack-section__principle {
-  max-width: 52rem;
-
-  margin: var(--space-10) auto 0;
-  padding-top: var(--space-6);
-
-  border-top: var(--border-width-thin)
-    solid var(--color-border-default);
-
-  text-align: center;
-}
-
-.technology-stack-section__principle p {
-  margin: 0;
-
-  color: var(--color-text-secondary);
-
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-relaxed);
-}
-
-.technology-stack-section__principle strong {
-  color: var(--color-text-primary);
-  font-weight: var(--font-weight-semibold);
-}
-
-/* =========================================================
-   TABLET
-   ========================================================= */
+/* -------------------------
+   Tablet
+------------------------- */
 
 @media (max-width: 64rem) {
   .technology-stack-section {
-    padding-block: var(--space-16);
+    padding-block: var(--space-10);
   }
 
   .technology-stack-section__header {
-    gap: var(--space-10);
+    gap: var(--space-8);
   }
 
   .technology-stack-section__title {
-    font-size: clamp(
-      var(--font-size-4xl),
-      5vw,
-      var(--font-size-5xl)
-    );
+    font-size:
+      clamp(
+        var(--font-size-3xl),
+        4.5vw,
+        var(--font-size-4xl)
+      );
   }
 
   .technology-stack-section__grid {
-    gap: var(--space-4);
-    margin-top: var(--space-12);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: var(--space-6);
   }
 
-  .technology-stack-section__card {
-    min-height: 18rem;
+  .technology-stack-section__group {
+    min-height: 8.5rem;
+    padding: var(--space-4);
+  }
+
+  .technology-stack-section__visual {
+    width: 7rem;
+    height: 7rem;
   }
 }
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
+/* -------------------------
+   Mobile
+------------------------- */
 
 @media (max-width: 48rem) {
-  .technology-stack-section {
-    padding-block: var(--space-14);
-  }
-
   .technology-stack-section__header {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
 
   .technology-stack-section__introduction {
@@ -382,35 +299,38 @@
   }
 
   .technology-stack-section__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+    margin-top: var(--space-6);
+  }
+
+  .technology-stack-section__group {
+    min-height: 8rem;
   }
 }
 
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
+/* -------------------------
+   Small Mobile
+------------------------- */
 
 @media (max-width: 30rem) {
   .technology-stack-section {
-    padding-block: var(--space-10);
+    padding-block: var(--space-8);
   }
 
   .technology-stack-section__eyebrow {
     gap: var(--space-2);
-    margin-bottom: var(--space-4);
-
+    margin-bottom: var(--space-3);
     font-size: var(--font-size-xs);
   }
 
   .technology-stack-section__eyebrow::before {
-    width: 1.25rem;
+    width: var(--space-5);
   }
 
   .technology-stack-section__title {
-    max-width: 100%;
-
+    max-width: none;
     font-size: var(--font-size-4xl);
-    line-height: 1;
+    line-height: 1.05;
   }
 
   .technology-stack-section__introduction p {
@@ -418,63 +338,39 @@
   }
 
   .technology-stack-section__grid {
-    grid-template-columns: 1fr;
-
-    gap: var(--space-4);
-    margin-top: var(--space-10);
-  }
-
-  .technology-stack-section__card {
-    min-height: 17rem;
-  }
-
-  .technology-stack-section__card-content {
-    padding-top: var(--space-8);
-  }
-
-  .technology-stack-section__group-title {
-    font-size: var(--font-size-lg);
-  }
-
-  .technology-stack-section__technologies {
+    gap: var(--space-3);
     margin-top: var(--space-5);
   }
 
-  .technology-stack-section__technology {
-    min-height: 2rem;
-    padding: var(--space-2) var(--space-3);
+  .technology-stack-section__group {
+    min-height: auto;
+    padding: var(--space-4);
   }
 
-  .technology-stack-section__card-footer {
-    margin-top: var(--space-5);
+  .technology-stack-section__content {
+    gap: var(--space-3);
   }
 
-  .technology-stack-section__principle {
-    margin-top: var(--space-8);
-    padding-top: var(--space-5);
-  }
-
-  .technology-stack-section__principle p {
-    font-size: var(--font-size-sm);
+  .technology-stack-section__visual {
+    width: 6rem;
+    height: 6rem;
   }
 }
 
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
+/* -------------------------
+   Reduced Motion
+------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .technology-stack-section *,
-  .technology-stack-section *::before,
-  .technology-stack-section *::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
-    scroll-behavior: auto;
-    transition-duration: 0.01ms;
+  .technology-stack-section__group,
+  .technology-stack-section__visual,
+  .technology-stack-section__technology {
+    transition: none;
   }
 
-  .technology-stack-section__card:hover
-    .technology-stack-section__card-mark {
+  .technology-stack-section__group:hover,
+  .technology-stack-section__group:hover
+  .technology-stack-section__visual {
     transform: none;
   }
 }

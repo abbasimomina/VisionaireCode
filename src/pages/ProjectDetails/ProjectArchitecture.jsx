@@ -8,6 +8,7 @@ import {
 import { Container } from "../../components/layout/Container.jsx"
 import { Section } from "../../components/layout/Section.jsx"
 import { Card } from "../../components/ui/Card.jsx"
+import { Slider } from "../../components/ui/Slider.jsx"
 
 const ProjectArchitecture = ({ project }) => {
   const architecture = project.architecture
@@ -70,16 +71,14 @@ const ProjectArchitecture = ({ project }) => {
               Architecture
             </h2>
           </div>
-
-          <div className="project-architecture__introduction">
-            <p>
-              A structured overview of the technologies and application
-              layers that power this project.
-            </p>
-          </div>
         </header>
 
-        <div className="project-architecture__grid">
+        <Slider
+          ariaLabel="Project architecture"
+          previousLabel="Previous architecture layer"
+          nextLabel="Next architecture layer"
+          className="project-architecture__slider"
+        >
           {availableItems.map((item) => {
             const Icon = item.icon
 
@@ -122,7 +121,7 @@ const ProjectArchitecture = ({ project }) => {
               </Card>
             )
           })}
-        </div>
+        </Slider>
       </Container>
     </Section>
   )

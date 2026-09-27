@@ -11,10 +11,12 @@ import { Container } from "../../components/layout/Container.jsx"
 
 import {
   Card,
-  CardHeader,
   CardContent,
   CardFooter,
+  CardVisual,
 } from "../../components/ui/Card.jsx"
+
+import { Slider } from "../../components/ui/Slider.jsx"
 
 const coreValues = [
   {
@@ -55,6 +57,7 @@ const coreValues = [
   },
 ]
 
+
 export function CoreValues() {
   return (
     <section
@@ -84,7 +87,12 @@ export function CoreValues() {
           </div>
         </header>
 
-        <div className="core-values__grid">
+        <Slider
+          ariaLabel="Core values"
+          previousLabel="Previous values"
+          nextLabel="Next values"
+          className="core-values__slider"
+        >
           {coreValues.map((value) => {
             const Icon = value.icon
 
@@ -93,20 +101,17 @@ export function CoreValues() {
                 key={value.title}
                 variant="default"
                 padding="default"
+                interactive
                 className="core-values__card"
-              >
-                <CardHeader className="core-values__card-header">
-                  <span
-                    className="core-values__card-icon"
-                    aria-hidden="true"
-                  >
+                visual={
+                  <CardVisual variant="service">
                     <Icon
-                      size={20}
-                      strokeWidth={1.8}
+                      aria-hidden="true"
+                      strokeWidth={1.15}
                     />
-                  </span>
-                </CardHeader>
-
+                  </CardVisual>
+                }
+              >
                 <CardContent className="core-values__card-content">
                   <h3>{value.title}</h3>
 
@@ -126,7 +131,7 @@ export function CoreValues() {
               </Card>
             )
           })}
-        </div>
+        </Slider>
       </Container>
     </section>
   )

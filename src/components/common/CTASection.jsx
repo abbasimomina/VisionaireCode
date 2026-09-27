@@ -22,8 +22,6 @@ export function CTASection({
     >
       <Container>
         <div className="cta-section__surface">
-
-          {/* Background Decoration */}
           <div
             className="cta-section__background"
             aria-hidden="true"
@@ -32,13 +30,11 @@ export function CTASection({
             <span className="cta-section__grid" />
           </div>
 
-          {/* Content */}
           <div className="cta-section__content">
-
             {eyebrow && (
-              <span className="cta-section__eyebrow">
+              <p className="cta-section__eyebrow">
                 {eyebrow}
-              </span>
+              </p>
             )}
 
             <h2
@@ -56,7 +52,6 @@ export function CTASection({
 
             {(primaryAction || secondaryAction) && (
               <div className="cta-section__actions">
-
                 {primaryAction && (
                   <Button
                     as="a"
@@ -78,10 +73,8 @@ export function CTASection({
                     {secondaryAction.label}
                   </Button>
                 )}
-
               </div>
             )}
-
           </div>
         </div>
       </Container>

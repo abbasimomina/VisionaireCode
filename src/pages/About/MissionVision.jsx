@@ -7,9 +7,9 @@ import { Container } from "../../components/layout/Container.jsx"
 
 import {
   Card,
-  CardHeader,
   CardContent,
   CardFooter,
+  CardVisual,
 } from "../../components/ui/Card.jsx"
 
 const missionVisionItems = [
@@ -28,6 +28,7 @@ const missionVisionItems = [
       "To grow Visionaire Code into a thoughtful software brand that creates useful, reliable, and meaningful digital products.",
   },
 ]
+
 
 export function MissionVision() {
   return (
@@ -67,24 +68,17 @@ export function MissionVision() {
                 key={item.label}
                 variant="default"
                 padding="default"
+                interactive
                 className="mission-vision__card"
-              >
-                <CardHeader className="mission-vision__card-header">
-                  <span
-                    className="mission-vision__card-icon"
-                    aria-hidden="true"
-                  >
+                visual={
+                  <CardVisual variant="service">
                     <Icon
-                      size={20}
-                      strokeWidth={1.8}
+                      aria-hidden="true"
+                      strokeWidth={1.15}
                     />
-                  </span>
-
-                  {/* <span className="mission-vision__card-number">
-                    {item.number}
-                  </span> */}
-                </CardHeader>
-
+                  </CardVisual>
+                }
+              >
                 <CardContent className="mission-vision__card-content">
                   <span className="mission-vision__card-label">
                     {item.label}

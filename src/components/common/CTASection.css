@@ -1,93 +1,88 @@
 /* =========================================================
-   CTA SECTION
-   ========================================================= */
+   Visionaire Code — CTA Section
+========================================================= */
 
 .cta-section {
-  padding-block: var(--space-20);
-  background-color: var(--color-surface-primary);
+  padding-block: var(--space-12);
 }
 
-
-/* =========================================================
-   CTA SURFACE
-   ========================================================= */
+/* -------------------------
+   Surface
+------------------------- */
 
 .cta-section__surface {
   position: relative;
   overflow: hidden;
 
-  border: 1px solid rgb(255 255 255 / 0.08);
-  border-radius: var(--radius-xl);
+  border:
+    var(--border-width-thin)
+    solid
+    rgb(255 255 255 / 0.08);
+  border-radius: var(--radius-lg);
 
   background-color: var(--color-neutral-900);
-
-  box-shadow:
-    0 1.5rem 3rem rgb(15 23 42 / 0.12),
-    0 0.5rem 1rem rgb(15 23 42 / 0.06);
+  box-shadow: var(--shadow-lg);
 }
 
-
-/* =========================================================
-   BACKGROUND
-   ========================================================= */
+/* -------------------------
+   Background
+------------------------- */
 
 .cta-section__background {
   position: absolute;
   inset: 0;
 
   overflow: hidden;
-
   pointer-events: none;
 }
 
 .cta-section__glow {
   position: absolute;
-  top: -12rem;
-  right: -8rem;
+  top: -8rem;
+  right: -5rem;
 
-  width: 28rem;
-  height: 28rem;
+  width: 20rem;
+  height: 20rem;
 
   border-radius: var(--radius-full);
 
   background-color: var(--color-brand-primary);
+  opacity: 0.09;
 
-  opacity: 0.12;
-
-  filter: blur(5rem);
+  filter: blur(4rem);
 }
 
 .cta-section__grid {
   position: absolute;
   inset: 0;
 
-  opacity: 0.045;
+  opacity: 0.035;
 
   background-image:
     linear-gradient(
       to right,
-      rgb(255 255 255 / 0.4) 1px,
+      rgb(255 255 255 / 0.35) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      rgb(255 255 255 / 0.4) 1px,
+      rgb(255 255 255 / 0.35) 1px,
       transparent 1px
     );
 
   background-size: 4rem 4rem;
 
-  mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    transparent 85%
-  );
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black 0%,
+      transparent 90%
+    );
 }
 
-
-/* =========================================================
-   CONTENT
-   ========================================================= */
+/* -------------------------
+   Content
+------------------------- */
 
 .cta-section__content {
   position: relative;
@@ -97,83 +92,90 @@
   flex-direction: column;
   align-items: center;
 
-  padding: var(--space-16) var(--space-12);
+  padding:
+    var(--space-10)
+    var(--space-8);
 
   text-align: center;
 }
 
-
-/* =========================================================
-   EYEBROW
-   ========================================================= */
+/* -------------------------
+   Eyebrow
+------------------------- */
 
 .cta-section__eyebrow {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: var(--space-2);
 
-  width: fit-content;
-
-  margin-bottom: var(--space-5);
-  padding: 0.375rem 0.75rem;
-
-  border: 1px solid rgb(255 255 255 / 0.12);
-  border-radius: var(--radius-full);
-
-  background-color: rgb(255 255 255 / 0.05);
+  margin: 0 0 var(--space-3);
 
   color: var(--color-brand-accent);
 
   font-family: var(--font-family-body);
-  font-size: var(--type-label-size);
-  font-weight: var(--type-label-weight);
-  line-height: var(--type-label-line-height);
-  letter-spacing: var(--type-label-letter-spacing);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
+.cta-section__eyebrow::before {
+  content: "";
 
-/* =========================================================
-   TITLE
-   ========================================================= */
+  width: var(--space-6);
+  height: 1px;
+
+  background-color: var(--color-brand-accent);
+}
+
+/* -------------------------
+   Title
+------------------------- */
 
 .cta-section__title {
   max-width: 16ch;
-
   margin: 0;
 
   color: var(--color-text-inverse);
 
   font-family: var(--font-family-display);
-  font-size: var(--type-h2-size);
-  font-weight: var(--type-h2-weight);
-  line-height: var(--type-h2-line-height);
-  letter-spacing: var(--type-h2-letter-spacing);
+  font-size:
+    clamp(
+      var(--font-size-3xl),
+      4vw,
+      var(--font-size-5xl)
+    );
+  font-weight: var(--font-weight-bold);
+  line-height: 1.08;
+
+  letter-spacing: -0.025em;
 }
 
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
+/* -------------------------
+   Description
+------------------------- */
 
 .cta-section__description {
-  max-width: 42rem;
+  max-width: 40rem;
 
-  margin: var(--space-5) 0 0;
+  margin:
+    var(--space-4)
+    0
+    0;
 
   color: rgb(255 255 255 / 0.68);
 
   font-family: var(--font-family-body);
-  font-size: var(--type-body-large-size);
-  font-weight: var(--type-body-large-weight);
-  line-height: var(--type-body-large-line-height);
-  letter-spacing: var(--type-body-large-letter-spacing);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.55;
 }
 
-
-/* =========================================================
-   ACTIONS
-   ========================================================= */
+/* -------------------------
+   Actions
+------------------------- */
 
 .cta-section__actions {
   display: flex;
@@ -183,104 +185,97 @@
 
   gap: var(--space-3);
 
-  margin-top: var(--space-8);
+  margin-top: var(--space-6);
 }
 
-
-/* =========================================================
-   TABLET
-   ========================================================= */
+/* -------------------------
+   Tablet
+------------------------- */
 
 @media (max-width: 64rem) {
   .cta-section {
-    padding-block: var(--space-16);
+    padding-block: var(--space-10);
   }
 
   .cta-section__content {
-    padding: var(--space-14) var(--space-8);
+    padding:
+      var(--space-9)
+      var(--space-6);
   }
 
   .cta-section__title {
-    font-size: var(--type-h2-size-mobile);
+    font-size: var(--font-size-4xl);
   }
 
   .cta-section__description {
-    font-size: var(--type-body-large-size-mobile);
-  }
-
-  .cta-section__eyebrow {
-    font-size: var(--type-label-size-mobile);
+    font-size: var(--font-size-md);
   }
 }
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
+/* -------------------------
+   Mobile
+------------------------- */
 
 @media (max-width: 48rem) {
   .cta-section {
-    padding-block: var(--space-14);
+    padding-block: var(--space-10);
   }
 
   .cta-section__content {
-    padding: var(--space-12) var(--space-6);
+    padding:
+      var(--space-8)
+      var(--space-5);
   }
 
   .cta-section__title {
     max-width: 15ch;
   }
 
-  .cta-section__description {
-    max-width: 36rem;
-
-    margin-top: var(--space-4);
-  }
-
   .cta-section__actions {
-    margin-top: var(--space-7);
+    margin-top: var(--space-5);
   }
 }
 
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
+/* -------------------------
+   Small Mobile
+------------------------- */
 
 @media (max-width: 30rem) {
   .cta-section {
-    padding-block: var(--space-10);
-  }
-
-  .cta-section__surface {
-    border-radius: var(--radius-lg);
+    padding-block: var(--space-8);
   }
 
   .cta-section__content {
-    padding: var(--space-10) var(--space-5);
+    padding:
+      var(--space-8)
+      var(--space-4);
   }
 
   .cta-section__eyebrow {
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-xs);
+  }
 
-    padding: 0.325rem 0.625rem;
+  .cta-section__eyebrow::before {
+    width: var(--space-5);
   }
 
   .cta-section__title {
-    max-width: 100%;
+    max-width: none;
+    font-size: var(--font-size-4xl);
+    line-height: 1.05;
   }
 
   .cta-section__description {
-    margin-top: var(--space-4);
+    font-size: var(--font-size-md);
   }
 
   .cta-section__actions {
     width: 100%;
-
-    align-items: stretch;
     flex-direction: column;
+    align-items: stretch;
 
-    margin-top: var(--space-6);
+    margin-top: var(--space-5);
   }
 
   .cta-section__actions .button {
@@ -288,18 +283,16 @@
   }
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
+/* -------------------------
+   Reduced Motion
+------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   .cta-section *,
   .cta-section *::before,
   .cta-section *::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
+    transition: none;
+    animation: none;
     scroll-behavior: auto;
-    transition-duration: 0.01ms;
   }
 }

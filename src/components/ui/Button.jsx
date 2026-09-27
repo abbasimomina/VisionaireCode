@@ -12,7 +12,8 @@ export function Button({
   as: Component = "button",
   ...props
 }) {
-  const isIconOnly = variant === "icon" && !children
+  const isIconOnly = variant === "icon" && !children;
+  const isDisabled = disabled || loading;
 
   const classes = [
     "button",
@@ -23,54 +24,39 @@ export function Button({
     className,
   ]
     .filter(Boolean)
-    .join(" ")
+    .join(" ");
 
   const content = loading ? (
-    <span
-      className="button__loader"
-      aria-hidden="true"
-    />
+    <span className="button__loader" aria-hidden="true" />
   ) : (
     <>
       {icon && iconPosition === "left" && (
-        <span
-          className="button__icon"
-          aria-hidden="true"
-        >
-          {icon}
+        <span className="button__icon" aria-hidden="true">
+          {icon}{" "}
         </span>
       )}
-
-      {children && (
-        <span className="button__label">
-          {children}
-        </span>
-      )}
-
+      {children && <span className="button__label">{children}</span>}
       {icon && (iconPosition === "right" || isIconOnly) && (
-        <span
-          className="button__icon"
-          aria-hidden="true"
-        >
+        <span className="button__icon" aria-hidden="true">
           {icon}
         </span>
       )}
     </>
-  )
+  );
 
   if (Component === "button") {
     return (
       <button
         type={type}
         className={classes}
-        disabled={disabled || loading}
+        disabled={isDisabled}
         aria-label={ariaLabel}
         aria-busy={loading || undefined}
         {...props}
       >
-        {content}
+        {content}{" "}
       </button>
-    )
+    );
   }
 
   return (
@@ -78,10 +64,10 @@ export function Button({
       className={classes}
       aria-label={ariaLabel}
       aria-busy={loading || undefined}
-      aria-disabled={disabled || undefined}
+      aria-disabled={isDisabled || undefined}
       {...props}
     >
-      {content}
+      {content}{" "}
     </Component>
-  )
+  );
 }

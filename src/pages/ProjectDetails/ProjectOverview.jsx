@@ -2,7 +2,7 @@ import { Container } from "../../components/layout/Container.jsx"
 import { Section } from "../../components/layout/Section.jsx"
 
 const ProjectOverview = ({ project }) => {
-  const overview = project.overview || project.description
+  const overview = project.overview
 
   if (!overview) {
     return null

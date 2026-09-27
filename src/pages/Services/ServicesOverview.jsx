@@ -10,10 +10,12 @@ import { Container } from "../../components/layout/Container.jsx"
 
 import {
   Card,
-  CardHeader,
   CardContent,
   CardFooter,
+  CardVisual,
 } from "../../components/ui/Card.jsx"
+
+import { Slider } from "../../components/ui/Slider.jsx"
 
 const principles = [
   {
@@ -48,6 +50,7 @@ const principles = [
   },
 ]
 
+
 export function ServicesOverview() {
   return (
     <section
@@ -79,7 +82,12 @@ export function ServicesOverview() {
           </div>
         </header>
 
-        <div className="services-overview__principles">
+        <Slider
+          ariaLabel="Development principles"
+          previousLabel="Previous principles"
+          nextLabel="Next principles"
+          className="services-overview__slider"
+        >
           {principles.map((principle) => {
             const Icon = principle.icon
 
@@ -88,20 +96,17 @@ export function ServicesOverview() {
                 key={principle.title}
                 variant="default"
                 padding="default"
+                interactive
                 className="services-overview__card"
-              >
-                <CardHeader className="services-overview__card-header">
-                  <span
-                    className="services-overview__card-icon"
-                    aria-hidden="true"
-                  >
+                visual={
+                  <CardVisual variant="service">
                     <Icon
-                      size={20}
-                      strokeWidth={1.8}
+                      aria-hidden="true"
+                      strokeWidth={1.15}
                     />
-                  </span>
-                </CardHeader>
-
+                  </CardVisual>
+                }
+              >
                 <CardContent className="services-overview__card-content">
                   <h3>{principle.title}</h3>
 
@@ -121,7 +126,7 @@ export function ServicesOverview() {
               </Card>
             )
           })}
-        </div>
+        </Slider>
       </Container>
     </section>
   )

@@ -1,11 +1,9 @@
-
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 import { getAllProjects } from "../../api/projectService.js"
 
 import { Container } from "../layout/Container.jsx"
-import { Card } from "../ui/Card.jsx"
 import { Button } from "../ui/Button.jsx"
 
 import "./FeaturedProjectsSection.css"
@@ -126,10 +124,14 @@ export function FeaturedProjectsSection({
   return (
     <section
       id={id}
-      className={`featured-projects ${className}`.trim()}
+      className={`featured-projects background-primary ${className}`.trim()}
       aria-labelledby={`${id}-title`}
     >
       <Container>
+        {/* =========================================
+            SECTION INTRO
+            ========================================= */}
+
         <header className="featured-projects__header">
           <div className="featured-projects__heading">
             <p className="featured-projects__eyebrow">
@@ -145,9 +147,7 @@ export function FeaturedProjectsSection({
           </div>
 
           <div className="featured-projects__introduction">
-            <p>
-              {description}
-            </p>
+            <p>{description}</p>
 
             {showHeaderAction && (
               <Button
@@ -162,11 +162,21 @@ export function FeaturedProjectsSection({
           </div>
         </header>
 
+
+        {/* =========================================
+            LOADING
+            ========================================= */}
+
         {loading && (
           <div className="featured-projects__state">
             <p>Loading featured projects...</p>
           </div>
         )}
+
+
+        {/* =========================================
+            ERROR
+            ========================================= */}
 
         {!loading && error && (
           <div className="featured-projects__state">
@@ -174,82 +184,103 @@ export function FeaturedProjectsSection({
           </div>
         )}
 
+
+        {/* =========================================
+            EMPTY
+            ========================================= */}
+
         {!loading && !error && projects.length === 0 && (
           <div className="featured-projects__state">
             <p>No featured projects available.</p>
           </div>
         )}
 
+
+        {/* =========================================
+            PROJECT SHOWCASE
+            ========================================= */}
+
         {!loading && !error && projects.length > 0 && (
-          <div className="featured-projects__grid">
-            {projects.map((project) => (
-              <Card
+          <div className="featured-projects__showcase">
+            {projects.map((project, index) => (
+              <article
                 key={project._id}
-                className="featured-projects__card"
+                className={`featured-projects__project ${
+                  index % 2 === 1
+                    ? "featured-projects__project--reverse"
+                    : ""
+                }`}
               >
-                <div className="featured-projects__card-content">
-                  <Link
-                    to={`/projects/${project.slug}`}
-                    className="featured-projects__link"
-                    aria-label={`View details for ${project.title}`}
-                  >
-                    <ProjectPreview project={project} />
+                <Link
+                  to={`/projects/${project.slug}`}
+                  className="featured-projects__project-link"
+                  aria-label={`View details for ${project.title}`}
+                >
+                  {/* Project Visual */}
+                  <ProjectPreview project={project} />
 
-                    <div className="featured-projects__body">
-                      <div className="featured-projects__meta">
-                        {project.category && (
-                          <span className="featured-projects__category">
-                            {project.category}
-                          </span>
-                        )}
-                      </div>
-
-                      <h3 className="featured-projects__name">
-                        {project.title}
-                      </h3>
-
-                      <p className="featured-projects__description">
-                        {project.shortDescription ||
-                          project.description}
-                      </p>
-
-                      {project.technologies?.length > 0 && (
-                        <div
-                          className="featured-projects__technologies"
-                          aria-label={`Technologies used for ${project.title}`}
-                        >
-                          {project.technologies
-                            .slice(0, 4)
-                            .map((technology) => (
-                              <span
-                                key={technology}
-                                className="featured-projects__technology"
-                              >
-                                {technology}
-                              </span>
-                            ))}
-                        </div>
-                      )}
-
-                      <span className="featured-projects__action">
-                        <span>
-                          View Case Study
-                        </span>
-
-                        <span
-                          className="featured-projects__action-icon"
-                          aria-hidden="true"
-                        >
-                          →
-                        </span>
+                  {/* Project Information */}
+                  <div className="featured-projects__project-content">
+                    <div className="featured-projects__project-meta">
+                      <span className="featured-projects__project-number">
+                        {String(index + 1).padStart(2, "0")}
                       </span>
+
+                      {project.category && (
+                        <span className="featured-projects__category">
+                          {project.category}
+                        </span>
+                      )}
                     </div>
-                  </Link>
-                </div>
-              </Card>
+
+                    <h3 className="featured-projects__name">
+                      {project.title}
+                    </h3>
+
+                    <p className="featured-projects__description">
+                      {project.shortDescription ||
+                        project.description}
+                    </p>
+
+                    {project.technologies?.length > 0 && (
+                      <div
+                        className="featured-projects__technologies"
+                        aria-label={`Technologies used for ${project.title}`}
+                      >
+                        {project.technologies
+                          .slice(0, 3)
+                          .map((technology) => (
+                            <span
+                              key={technology}
+                              className="featured-projects__technology"
+                            >
+                              {technology}
+                            </span>
+                          ))}
+                      </div>
+                    )}
+
+                    <span className="featured-projects__action">
+                      <span>View Case Study</span>
+
+                      <span
+                        className="featured-projects__action-icon"
+                        aria-hidden="true"
+                      >
+                        →
+                      </span>
+                    </span>
+                  </div>
+                </Link>
+              </article>
             ))}
           </div>
         )}
+
+
+        {/* =========================================
+            FOOTER ACTION
+            ========================================= */}
 
         {showFooterAction && (
           <div className="featured-projects__footer">

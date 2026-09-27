@@ -31,13 +31,6 @@ const ProjectChallenges = ({ project }) => {
               Challenges &amp; Solutions
             </h2>
           </div>
-
-          <div className="project-challenges__introduction">
-            <p>
-              Key implementation challenges encountered during development
-              and the approaches used to address them.
-            </p>
-          </div>
         </header>
 
         <div className="project-challenges__list">
@@ -46,7 +39,6 @@ const ProjectChallenges = ({ project }) => {
               key={`${item.challenge}-${index}`}
               className="project-challenges__pair"
             >
-              {/* Challenge Card */}
               <Card
                 variant="default"
                 padding="default"
@@ -84,7 +76,6 @@ const ProjectChallenges = ({ project }) => {
                 </footer>
               </Card>
 
-              {/* Solution Card */}
               {item.solution && (
                 <Card
                   variant="default"

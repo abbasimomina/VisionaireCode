@@ -8,7 +8,7 @@ import {
 import { Container } from "../../components/layout/Container.jsx"
 import { Section } from "../../components/layout/Section.jsx"
 import { Card } from "../../components/ui/Card.jsx"
-
+import { Slider } from "../../components/ui/Slider.jsx"
 
 const ProjectTechnicalDetails = ({ project }) => {
   const hasTechnologies = project.technologies?.length > 0
@@ -58,13 +58,6 @@ const ProjectTechnicalDetails = ({ project }) => {
               Technical Details
             </h2>
           </div>
-
-          <div className="project-technical-details__introduction">
-            <p>
-              A concise look at the technologies, access structure, and
-              engineering considerations behind the project.
-            </p>
-          </div>
         </header>
 
         <div className="project-technical-details__content">
@@ -87,7 +80,12 @@ const ProjectTechnicalDetails = ({ project }) => {
                 Roles &amp; Access
               </h3>
 
-              <div className="project-technical-details__roles">
+              <Slider
+                ariaLabel="Roles and access"
+                previousLabel="Previous roles"
+                nextLabel="Next roles"
+                className="project-technical-details__slider"
+              >
                 {project.roles.map((role, index) => (
                   <Card
                     key={`${role.name}-${index}`}
@@ -124,7 +122,7 @@ const ProjectTechnicalDetails = ({ project }) => {
                     </footer>
                   </Card>
                 ))}
-              </div>
+              </Slider>
             </div>
           )}
 
@@ -134,7 +132,12 @@ const ProjectTechnicalDetails = ({ project }) => {
                 Quality &amp; Reliability
               </h3>
 
-              <div className="project-technical-details__quality">
+              <Slider
+                ariaLabel="Quality and reliability"
+                previousLabel="Previous quality details"
+                nextLabel="Next quality details"
+                className="project-technical-details__slider"
+              >
                 {qualityDetails.map((detail) => {
                   const Icon = detail.icon
 
@@ -156,6 +159,7 @@ const ProjectTechnicalDetails = ({ project }) => {
 
                       <div className="project-technical-details__card-content">
                         <h4>{detail.title}</h4>
+
                         <p>{detail.value}</p>
                       </div>
 
@@ -172,7 +176,7 @@ const ProjectTechnicalDetails = ({ project }) => {
                     </Card>
                   )
                 })}
-              </div>
+              </Slider>
             </div>
           )}
         </div>

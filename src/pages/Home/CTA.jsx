@@ -4,6 +4,7 @@ export function CTA() {
   return (
     <CTASection
       id="home-cta"
+      className="background-primary"
       eyebrow="Have a project in mind?"
       title="Let's Build Something Meaningful."
       description="Tell us what you're building, and let's explore the right way to bring it to life."
