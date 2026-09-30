@@ -68,7 +68,6 @@ function ProjectPreview({ project }) {
   )
 }
 
-
 export function ProjectGrid() {
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
@@ -126,8 +125,8 @@ export function ProjectGrid() {
           <div className="project-grid__introduction">
             <p>
               Browse the software projects currently being developed
-              under Visionaire Code. Projects are added as they reach
-              a stage where they can be meaningfully documented.
+              under Visionaire Code. Open a project to explore its
+              details, implementation, and development journey.
             </p>
           </div>
         </header>
@@ -165,20 +164,23 @@ export function ProjectGrid() {
                   <ProjectPreview project={project} />
 
                   <div className="project-grid__body">
-                    {project.category && (
-                      <span className="project-grid__category">
-                        {project.category}
-                      </span>
-                    )}
+                    <div className="project-grid__meta">
+                      {project.category && (
+                        <span className="project-grid__category">
+                          {project.category}
+                        </span>
+                      )}
+
+                      {project.technologies?.length > 0 && (
+                        <span className="project-grid__technology-count">
+                          {project.technologies.length} technologies
+                        </span>
+                      )}
+                    </div>
 
                     <h3 className="project-grid__name">
                       {project.title}
                     </h3>
-
-                    <p className="project-grid__description">
-                      {project.shortDescription ||
-                        project.description}
-                    </p>
 
                     {project.technologies?.length > 0 && (
                       <div
@@ -186,7 +188,7 @@ export function ProjectGrid() {
                         aria-label={`Technologies used for ${project.title}`}
                       >
                         {project.technologies
-                          .slice(0, 4)
+                          .slice(0, 3)
                           .map((technology) => (
                             <span
                               key={technology}
@@ -198,8 +200,13 @@ export function ProjectGrid() {
                       </div>
                     )}
 
-                    <span className="project-grid__action">
-                      <span>View Case Study</span>
+                    <div className="project-grid__action">
+                      <span>View Project</span>
+
+                      <span
+                        className="project-grid__action-line"
+                        aria-hidden="true"
+                      />
 
                       <span
                         className="project-grid__action-icon"
@@ -207,7 +214,7 @@ export function ProjectGrid() {
                       >
                         →
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </Link>
               </Card>

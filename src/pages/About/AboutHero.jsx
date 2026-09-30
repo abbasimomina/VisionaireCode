@@ -138,6 +138,7 @@ export function AboutHero() {
         href: "/contact",
       }}
       visual={<AboutHeroVisual />}
+      mobileVisual="background"
       className="about-hero"
     />
   )

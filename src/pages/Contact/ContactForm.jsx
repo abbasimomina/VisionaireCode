@@ -83,7 +83,7 @@ export function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="contact-form-section"
+      className="contact-form-section background-soft"
       aria-labelledby="contact-form-title"
     >
       <Container>
@@ -103,14 +103,17 @@ export function ContactForm() {
 
           <div className="contact-form-section__introduction">
             <p>
-              Share a few details about your idea, requirements, or
-              current challenge. This helps us understand what you
-              need and determine the right direction.
+              Share the essentials about your idea, requirements,
+              or current challenge. We will use them to understand
+              where to start.
             </p>
           </div>
         </header>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form
+          className="contact-form"
+          onSubmit={handleSubmit}
+        >
           <div className="contact-form__grid">
             <FormField
               label="Full name"
@@ -152,7 +155,6 @@ export function ContactForm() {
             <FormField
               label="Phone number"
               htmlFor="contact-phone"
-              description="Optional"
             >
               <Input
                 id="contact-phone"
@@ -169,13 +171,12 @@ export function ContactForm() {
             <FormField
               label="Company / organization"
               htmlFor="contact-company"
-              description="Optional"
             >
               <Input
                 id="contact-company"
                 name="company"
                 type="text"
-                placeholder="Business or organization name"
+                placeholder="Business or organization (Optional)"
                 autoComplete="organization"
                 maxLength={150}
                 value={formData.company}
@@ -232,7 +233,6 @@ export function ContactForm() {
             <FormField
               label="Project budget"
               htmlFor="contact-budget"
-              description="Optional — helps us understand the project scope."
             >
               <Select
                 id="contact-budget"
@@ -241,7 +241,7 @@ export function ContactForm() {
                 onChange={handleChange}
               >
                 <option value="">
-                  Select a budget range
+                  Budget range
                 </option>
 
                 <option value="under-50k">
@@ -269,7 +269,6 @@ export function ContactForm() {
             <FormField
               label="Preferred timeline"
               htmlFor="contact-timeline"
-              description="Optional"
             >
               <Select
                 id="contact-timeline"
@@ -278,7 +277,7 @@ export function ContactForm() {
                 onChange={handleChange}
               >
                 <option value="">
-                  Select a timeline
+                  Timeline
                 </option>
 
                 <option value="asap">
@@ -306,13 +305,12 @@ export function ContactForm() {
             <FormField
               label="Subject"
               htmlFor="contact-subject"
-              description="Optional"
             >
               <Input
                 id="contact-subject"
                 name="subject"
                 type="text"
-                placeholder="What would you like to discuss?"
+                placeholder="What would you like to discuss? (Optional)"
                 maxLength={200}
                 value={formData.subject}
                 onChange={handleChange}
@@ -323,14 +321,13 @@ export function ContactForm() {
               <FormField
                 label="Tell us about your project"
                 htmlFor="contact-message"
-                description="Include the problem you are trying to solve, what you want to build, or any requirements you already have."
                 required
               >
                 <Textarea
                   id="contact-message"
                   name="message"
                   placeholder="Tell us about your project, requirements, goals, or questions..."
-                  rows={7}
+                  rows={6}
                   minLength={10}
                   maxLength={5000}
                   value={formData.message}
@@ -359,11 +356,8 @@ export function ContactForm() {
             </div>
           )}
 
-          <footer className="contact-form__footer">
-            <p className="contact-form__note">
-              You do not need to have everything finalized before
-              reaching out. Provide whatever details you already have.
-            </p>
+          <div className="contact-form__footer">
+            <span className="contact-form__footer-line" />
 
             <Button
               type="submit"
@@ -375,7 +369,7 @@ export function ContactForm() {
                 ? "Submitting..."
                 : "Discuss Your Project"}
             </Button>
-          </footer>
+          </div>
         </form>
       </Container>
     </section>

@@ -52,6 +52,7 @@ export function ServicesPreview() {
   return (
     <CoreServicesSection
       id="services-preview"
+      className="background-soft"
       eyebrow="What We Build"
       title="Digital solutions designed around real needs."
       description="From focused websites to larger digital platforms, Visionaire Code creates software experiences that combine thoughtful design with practical development."

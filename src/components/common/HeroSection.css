@@ -1,59 +1,29 @@
-/* =========================================================
-   HERO SECTION
-   ========================================================= */
-
-
-/* =========================================================
-   BASE
-   ========================================================= */
-
 .hero-section {
   position: relative;
   overflow: hidden;
-
   padding-block: var(--space-20);
 }
 
-
-/* =========================================================
-   CONTENT
-   ========================================================= */
-
 .hero-section__content {
+  position: relative;
   display: grid;
-
   grid-template-columns:
     minmax(0, 1.05fr)
     minmax(0, 0.95fr);
-
   align-items: center;
-
   gap: var(--space-12);
 }
-
-
-/* =========================================================
-   HERO COPY
-   ========================================================= */
 
 .hero-section__copy {
   position: relative;
   z-index: 2;
-
   max-width: 44rem;
 }
-
-
-/* =========================================================
-   EYEBROW
-   ========================================================= */
 
 .hero-section__eyebrow {
   display: inline-flex;
   align-items: center;
-
   gap: var(--space-2);
-
   margin: 0 0 var(--space-4);
 
   color: var(--color-brand-primary);
@@ -78,14 +48,8 @@
   background-color: var(--color-brand-primary);
 }
 
-
-/* =========================================================
-   TITLE
-   ========================================================= */
-
 .hero-section__title {
   max-width: 12ch;
-
   margin: 0;
 
   color: var(--color-text-primary);
@@ -102,14 +66,8 @@
   letter-spacing: -0.03em;
 }
 
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
-
 .hero-section__description {
   max-width: 39rem;
-
   margin: var(--space-6) 0 0;
 
   color: var(--color-text-secondary);
@@ -120,25 +78,14 @@
   line-height: 1.6;
 }
 
-
-/* =========================================================
-   ACTIONS
-   ========================================================= */
-
 .hero-section__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-
   gap: var(--space-3);
 
   margin-top: var(--space-8);
 }
-
-
-/* =========================================================
-   VISUAL
-   ========================================================= */
 
 .hero-section__visual {
   position: relative;
@@ -154,7 +101,7 @@
 
 
 /* =========================================================
-   TABLET
+   Tablet
    ========================================================= */
 
 @media (max-width: 64rem) {
@@ -166,7 +113,6 @@
     grid-template-columns:
       minmax(0, 1fr)
       minmax(0, 0.9fr);
-
     gap: var(--space-10);
   }
 
@@ -181,7 +127,7 @@
 
 
 /* =========================================================
-   MOBILE
+   Mobile
    ========================================================= */
 
 @media (max-width: 48rem) {
@@ -190,12 +136,13 @@
   }
 
   .hero-section__content {
-    grid-template-columns: 1fr;
-
-    gap: var(--space-10);
+    display: block;
   }
 
   .hero-section__copy {
+    position: relative;
+    z-index: 2;
+
     max-width: 42rem;
   }
 
@@ -209,14 +156,82 @@
     );
   }
 
-  .hero-section__visual {
-    justify-content: flex-start;
+  .hero-section__description {
+    max-width: 39rem;
+  }
+
+  /*
+   * On mobile the visual becomes an atmospheric background.
+   * It no longer contributes to document height.
+   */
+  .hero-section__visual--mobile-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    opacity: 0.12;
+  }
+
+  /*
+   * Keep the visual toward the right side so it supports
+   * the copy instead of sitting directly behind the text.
+   */
+  .hero-section__visual--mobile-background > * {
+    position: absolute;
+    top: 50%;
+    right: -8%;
+
+    width: min(88%, 34rem);
+
+    transform: translateY(-50%);
+    transform-origin: center right;
+  }
+
+  /*
+   * The copy must always remain visually dominant.
+   */
+  .hero-section__visual--mobile-background {
+    color: inherit;
+  }
+
+  /*
+   * Alternative mobile behavior remains available for
+   * pages that genuinely need the visual as content.
+   */
+  .hero-section__visual--mobile-stack {
+    position: relative;
+
+    display: flex;
+
+    margin-top: var(--space-10);
+
+    opacity: 1;
+  }
+
+  .hero-section__visual--mobile-stack > * {
+    position: relative;
+    top: auto;
+    right: auto;
+
+    width: 100%;
+
+    transform: none;
   }
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   Small Mobile
    ========================================================= */
 
 @media (max-width: 30rem) {
@@ -226,7 +241,6 @@
 
   .hero-section__eyebrow {
     gap: var(--space-2);
-
     margin-bottom: var(--space-3);
 
     font-size: var(--font-size-xs);
@@ -250,7 +264,6 @@
 
   .hero-section__actions {
     align-items: stretch;
-
     flex-direction: column;
 
     margin-top: var(--space-6);
@@ -259,11 +272,23 @@
   .hero-section__actions .button {
     width: 100%;
   }
+
+  .hero-section__visual--mobile-background {
+    opacity: 0.1;
+  }
+
+  .hero-section__visual--mobile-background > * {
+    right: -18%;
+
+    width: 105%;
+
+    transform: translateY(-50%) scale(0.92);
+  }
 }
 
 
 /* =========================================================
-   REDUCED MOTION
+   Reduced Motion
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {

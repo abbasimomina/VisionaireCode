@@ -57,11 +57,10 @@ const coreValues = [
   },
 ]
 
-
 export function CoreValues() {
   return (
     <section
-      className="core-values"
+      className="core-values background-primary"
       aria-labelledby="core-values-heading"
     >
       <Container>

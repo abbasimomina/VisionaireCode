@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {
   LuSearch,
   LuClipboardList,
@@ -7,6 +8,14 @@ import {
   LuRocket,
   LuRefreshCw,
 } from "react-icons/lu"
+import { motion as Motion, AnimatePresence } from "framer-motion"
+
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardVisual,
+} from "../ui/Card.jsx"
 
 import { Container } from "../layout/Container.jsx"
 
@@ -17,148 +26,178 @@ const defaultProcessSteps = [
     icon: LuSearch,
     title: "Discovery",
     description:
-      "Understand the goals, users, requirements, problems, and constraints before defining the solution.",
+      "Understand the problem, users, requirements, and constraints before defining the solution.",
   },
   {
     icon: LuClipboardList,
     title: "Planning",
     description:
-      "Define the scope, workflows, architecture, technical direction, and implementation priorities.",
+      "Consider requirements, workflows, architecture, priorities, and technical direction before implementation.",
   },
   {
     icon: LuPenTool,
-    title: "UI/UX Design",
+    title: "Design",
     description:
-      "Plan the information architecture, user flows, interfaces, responsive behavior, and design system.",
+      "Translate requirements into clear user flows, interfaces, responsive experiences, and system structure.",
   },
   {
     icon: LuTerminal,
     title: "Development",
     description:
-      "Build the solution using appropriate technologies, architecture, and practical engineering practices.",
+      "Build the solution using appropriate technologies and maintainable engineering practices.",
   },
   {
     icon: LuShieldCheck,
-    title: "Testing & Refinement",
+    title: "Testing",
     description:
-      "Verify functionality, responsiveness, usability, interface behavior, and implementation quality.",
+      "Evaluate functionality, responsiveness, usability, and implementation quality.",
   },
   {
     icon: LuRocket,
-    title: "Deployment",
+    title: "Release",
     description:
-      "Prepare the completed solution for its intended environment and release.",
+      "Prepare and deploy the completed solution for its intended environment.",
   },
   {
     icon: LuRefreshCw,
     title: "Improvement",
     description:
-      "Continue refining the software when feedback, new requirements, or opportunities for improvement arise.",
+      "Use feedback, testing, experience, and new requirements to continuously refine the work.",
   },
 ]
 
 export function DevelopmentProcessSection({
   id = "development-process",
   eyebrow = "How We Develop",
-  title = "From requirements to software, with room to improve.",
+  title = "From idea to improvement, with purpose.",
   description =
-    "A clear development process helps keep the work focused, understandable, and adaptable as a project moves from an initial idea toward a working solution.",
+    "We approach each project with clear thinking, purposeful decisions, and room to learn and improve throughout the process.",
   steps = defaultProcessSteps,
-  showLoop = true,
-  loopLabel = "Improve continuously",
   className = "",
 }) {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const activeStep = steps[activeIndex]
+  const ActiveIcon = activeStep?.icon
+
   return (
     <section
       id={id}
-      className={`development-process-section ${className}`.trim()}
+      className={`development-process-section background-primary ${className}`.trim()}
       aria-labelledby={`${id}-title`}
     >
       <Container>
-        <header className="development-process-section__header">
-          <div className="development-process-section__heading">
-            <p className="development-process-section__eyebrow">
-              {eyebrow}
-            </p>
-
-            <h2
-              id={`${id}-title`}
-              className="development-process-section__title"
-            >
-              {title}
-            </h2>
-          </div>
-
-          <div className="development-process-section__introduction">
-            <p>{description}</p>
-          </div>
-        </header>
-
-        <div className="development-process-section__process">
-          <ol
-            className="development-process-section__steps"
-            aria-label="Development process"
-          >
-            {steps.map((step, index) => {
-              const Icon = step.icon
-
-              return (
-                <li
-                  key={step.title}
-                  className="development-process-section__step"
-                >
-                  <div className="development-process-section__marker">
-                    <span
-                      className="development-process-section__icon"
+        <div className="development-process-section__layout">
+          <div className="development-process-section__process">
+            <Card
+              variant="default"
+              padding="default"
+              interactive
+              className="development-process-section__detail"
+              visual={
+                <CardVisual variant="service">
+                  {ActiveIcon && (
+                    <ActiveIcon
                       aria-hidden="true"
-                    >
-                      <Icon
-                        size={20}
-                        strokeWidth={1.8}
-                      />
-                    </span>
-                  </div>
-
-                  <div className="development-process-section__step-content">
-                    <h3 className="development-process-section__step-title">
-                      {step.title}
-                    </h3>
-
-                    <p className="development-process-section__step-description">
-                      {step.description}
-                    </p>
-                  </div>
-
-                  {index < steps.length - 1 && (
-                    <span
-                      className="development-process-section__connector"
-                      aria-hidden="true"
+                      strokeWidth={1.15}
                     />
                   )}
-                </li>
-              )
-            })}
-          </ol>
-
-          {showLoop && (
-            <div
-              className="development-process-section__loop"
-              aria-hidden="true"
+                </CardVisual>
+              }
             >
-              <span className="development-process-section__loop-line" />
+              <CardContent className="development-process-section__detail-content">
+                <AnimatePresence mode="wait">
+                  <Motion.div
+                    key={activeStep?.title}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{
+                      duration: 0.22,
+                      ease: "easeOut",
+                    }}
+                  >
+                    {/* <p className="development-process-section__detail-eyebrow">
+                      Current Stage
+                    </p> */}
 
-              <span className="development-process-section__loop-icon">
-                <LuRefreshCw
-                  size={16}
-                  strokeWidth={1.8}
-                />
-              </span>
+                    <h3>{activeStep?.title}</h3>
 
-              <span className="development-process-section__loop-label">
-                {loopLabel}
-              </span>
+                    <p className="development-process-section__detail-description">
+                      {activeStep?.description}
+                    </p>
+                  </Motion.div>
+                </AnimatePresence>
+              </CardContent>
+
+              <CardFooter className="development-process-section__detail-footer">
+                <span className="development-process-section__detail-line" />
+
+                <span
+                  className="development-process-section__detail-mark"
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </CardFooter>
+            </Card>
+
+            <div className="development-process-section__path">
+              <div
+                className="development-process-section__path-line"
+                aria-hidden="true"
+              />
+
+              <div className="development-process-section__steps">
+                {steps.map((step, index) => {
+                  const isActive = index === activeIndex
+
+                  return (
+                    <button
+                      key={step.title}
+                      type="button"
+                      className={`development-process-section__step ${
+                        isActive ? "is-active" : ""
+                      }`}
+                      onClick={() => setActiveIndex(index)}
+                      aria-label={`View ${step.title} stage`}
+                      aria-pressed={isActive}
+                    >
+                      <span
+                        className="development-process-section__step-point"
+                        aria-hidden="true"
+                      >
+                        <span />
+                      </span>
+
+                      <span className="development-process-section__step-title">
+                        {step.title}
+                      </span>
+                    </button>
+                  )
+                })}
+              </div>
             </div>
-          )}
+          </div>
+
+          <header className="development-process-section__header">
+            <div className="development-process-section__heading">
+              <p className="development-process-section__eyebrow">
+                {eyebrow}
+              </p>
+
+              <h2
+                id={`${id}-title`}
+                className="development-process-section__title"
+              >
+                {title}
+              </h2>
+            </div>
+
+            <div className="development-process-section__introduction">
+              <p>{description}</p>
+            </div>
+          </header>
         </div>
       </Container>
     </section>

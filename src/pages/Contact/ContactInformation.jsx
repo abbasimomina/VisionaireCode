@@ -6,19 +6,11 @@ import {
 
 import { Container } from "../../components/layout/Container.jsx"
 
-import {
-  Card,
-  CardContent,
-  CardVisual,
-} from "../../components/ui/Card.jsx"
-
 const contactMethods = [
   {
     id: "email",
     icon: LuMail,
     title: "Email",
-    description:
-      "For project inquiries, collaboration, or general questions, send us a message by email.",
     value: "hello@visionairecode.com",
     href: "mailto:hello@visionairecode.com",
   },
@@ -26,8 +18,6 @@ const contactMethods = [
     id: "linkedin",
     icon: LuLinkedin,
     title: "LinkedIn",
-    description:
-      "Connect with Visionaire Code for professional updates, projects, and development work.",
     value: "Visionaire Code",
     href: "https://www.linkedin.com/",
     external: true,
@@ -36,25 +26,22 @@ const contactMethods = [
     id: "github",
     icon: LuGithub,
     title: "GitHub",
-    description:
-      "Explore selected software projects, experiments, and development work.",
     value: "Visionaire Code on GitHub",
     href: "https://github.com/",
     external: true,
   },
 ]
 
-
 export function ContactInformation() {
   return (
     <section
       id="contact-information"
-      className="contact-information"
+      className="contact-information background-primary"
       aria-labelledby="contact-information-title"
     >
       <Container>
-        <header className="contact-information__header">
-          <div className="contact-information__heading">
+        <div className="contact-information__layout">
+          <header className="contact-information__header">
             <p className="contact-information__eyebrow">
               Other Ways to Connect
             </p>
@@ -63,73 +50,63 @@ export function ContactInformation() {
               id="contact-information-title"
               className="contact-information__title"
             >
-              Prefer another way to reach us?
+              Connect with Visionaire Code.
             </h2>
-          </div>
 
-          <div className="contact-information__introduction">
-            <p>
-              If a project form is not the right fit, you can also
-              connect through the channels below.
+            <p className="contact-information__introduction">
+              Prefer a direct channel? Reach us through email or
+              explore our professional and development presence.
             </p>
-          </div>
-        </header>
+          </header>
 
-        <div className="contact-information__grid">
-          {contactMethods.map((method) => {
-            const Icon = method.icon
+          <div className="contact-information__list">
+            {contactMethods.map((method) => {
+              const Icon = method.icon
 
-            return (
-              <Card
-                key={method.id}
-                variant="default"
-                padding="default"
-                interactive
-                className="contact-information__card"
-                visual={
-                  <CardVisual variant="service">
-                    <Icon
-                      aria-hidden="true"
-                      strokeWidth={1.15}
-                    />
-                  </CardVisual>
-                }
-              >
-                <CardContent className="contact-information__card-content">
-                  <h3>{method.title}</h3>
-
-                  <p>{method.description}</p>
-                </CardContent>
-
-                <div className="contact-information__card-footer">
-                  <a
-                    href={method.href}
-                    className="contact-information__link"
-                    target={method.external ? "_blank" : undefined}
-                    rel={
-                      method.external
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                    aria-label={
-                      method.external
-                        ? `${method.value} (opens in a new tab)`
-                        : method.value
-                    }
+              return (
+                <a
+                  key={method.id}
+                  href={method.href}
+                  className="contact-information__item"
+                  target={method.external ? "_blank" : undefined}
+                  rel={
+                    method.external
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  aria-label={
+                    method.external
+                      ? `${method.value} (opens in a new tab)`
+                      : method.value
+                  }
+                >
+                  <span
+                    className="contact-information__icon"
+                    aria-hidden="true"
                   >
-                    <span>{method.value}</span>
+                    <Icon strokeWidth={1.5} />
+                  </span>
 
-                    <span
-                      className="contact-information__arrow"
-                      aria-hidden="true"
-                    >
-                      →
+                  <span className="contact-information__content">
+                    <span className="contact-information__label">
+                      {method.title}
                     </span>
-                  </a>
-                </div>
-              </Card>
-            )
-          })}
+
+                    <span className="contact-information__value">
+                      {method.value}
+                    </span>
+                  </span>
+
+                  <span
+                    className="contact-information__arrow"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </a>
+              )
+            })}
+          </div>
         </div>
       </Container>
     </section>

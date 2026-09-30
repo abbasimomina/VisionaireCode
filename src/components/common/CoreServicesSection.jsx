@@ -78,7 +78,7 @@ export function CoreServicesSection({
   return (
     <section
       id={id}
-      className={`core-services-section background-soft ${
+      className={`core-services-section ${
         detailed ? "core-services-section--detailed" : ""
       } ${className}`.trim()}
       aria-labelledby={`${id}-title`}

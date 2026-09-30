@@ -62,7 +62,7 @@ export function TechnologyStackSection({
   return (
     <section
       id={id}
-      className={`technology-stack-section background-soft ${className}`.trim()}
+      className={`technology-stack-section ${className}`.trim()}
       aria-labelledby={`${id}-title`}
     >
       <Container>

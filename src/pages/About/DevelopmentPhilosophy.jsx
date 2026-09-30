@@ -1,5 +1,5 @@
 import {
-  LuBrain,
+  LuSearch,
   LuClipboardList,
   LuPenTool,
   LuTerminal,
@@ -12,7 +12,7 @@ import { DevelopmentProcessSection } from "../../components/common/DevelopmentPr
 
 const developmentPhilosophySteps = [
   {
-    icon: LuBrain,
+    icon: LuSearch,
     title: "Understand",
     description:
       "Understand the problem, users, requirements, and constraints before defining the solution.",
@@ -59,11 +59,11 @@ export function DevelopmentPhilosophy() {
   return (
     <DevelopmentProcessSection
       id="development-philosophy"
+      className="background-soft"
       eyebrow="Development Philosophy"
       title="A thoughtful process from idea to improvement."
-      description="The way software is built matters. A clear process helps turn ideas into practical solutions while leaving room for testing, learning, and continuous improvement."
+      description="The way software is built matters. We approach each project with clear thinking, purposeful decisions, and room to learn and improve throughout the process."
       steps={developmentPhilosophySteps}
-      loopLabel="Keep improving"
     />
   )
 }

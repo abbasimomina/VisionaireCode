@@ -29,11 +29,10 @@ const missionVisionItems = [
   },
 ]
 
-
 export function MissionVision() {
   return (
     <section
-      className="mission-vision"
+      className="mission-vision background-soft"
       aria-labelledby="mission-vision-heading"
     >
       <Container>
@@ -59,7 +58,7 @@ export function MissionVision() {
           </div>
         </header>
 
-        <div className="mission-vision__grid">
+        <div className="mission-vision__statements">
           {missionVisionItems.map((item) => {
             const Icon = item.icon
 
@@ -80,13 +79,15 @@ export function MissionVision() {
                 }
               >
                 <CardContent className="mission-vision__card-content">
-                  <span className="mission-vision__card-label">
+                  <p className="mission-vision__label">
                     {item.label}
-                  </span>
+                  </p>
 
                   <h3>{item.title}</h3>
 
-                  <p>{item.description}</p>
+                  <p className="mission-vision__description">
+                    {item.description}
+                  </p>
                 </CardContent>
 
                 <CardFooter className="mission-vision__card-footer">

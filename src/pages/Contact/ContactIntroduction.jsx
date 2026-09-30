@@ -56,7 +56,7 @@ export function ContactIntroduction() {
       title="Start with the problem, idea, or requirement."
       description="Whether you are starting something new or improving an existing product, share what you are trying to achieve. The technical direction can be explored from there."
       services={discussionTypes}
-      className="contact-introduction"
+      className="contact-introduction background-primary"
     />
   )
 }

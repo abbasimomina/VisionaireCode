@@ -132,6 +132,7 @@ export function Hero() {
         href: "/projects",
       }}
       visual={<HomeHeroVisual />}
+      mobileVisual="background"
     />
   )
 }

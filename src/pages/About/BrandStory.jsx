@@ -8,35 +8,6 @@ import { LuCompass } from "react-icons/lu"
 
 import { Container } from "../../components/layout/Container.jsx"
 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardVisual,
-} from "../../components/ui/Card.jsx"
-
-
-const ecosystemItems = [
-  {
-    title: "Visionaire Studio",
-    description: "The broader creative and product direction.",
-  },
-  {
-    title: "Visionaire Code",
-    description: "The software engineering and digital product space.",
-    active: true,
-  },
-  {
-    title: "Software Projects",
-    description: "Practical work used to learn, build, and experiment.",
-  },
-  {
-    title: "Future Products",
-    description: "A direction toward meaningful software products.",
-  },
-]
-
-
 const storyChapters = [
   {
     number: "01",
@@ -61,17 +32,14 @@ const storyChapters = [
     title: "The Present",
     text:
       "Today, the focus is on modern websites, web applications, dashboards, and stronger foundations in engineering, product thinking, and user-centered design.",
-    current: true,
   },
   {
     number: "05",
     title: "The Direction Ahead",
     text:
       "The direction is toward meaningful software products built from experience, with a continuous focus on usefulness, reliability, and purpose.",
-    future: true,
   },
 ]
-
 
 export function BrandStory() {
   const [activeChapter, setActiveChapter] = useState(3)
@@ -80,19 +48,12 @@ export function BrandStory() {
 
   return (
     <section
-      className="brand-story"
+      className="brand-story background-primary"
       aria-labelledby="brand-story-heading"
     >
       <Container>
-
-        {/* ========================================
-            HEADER
-            ======================================== */}
-
         <header className="brand-story__header">
-
-          <div className="brand-story__header-content">
-
+          <div className="brand-story__heading">
             <p className="brand-story__eyebrow">
               The Story
             </p>
@@ -103,172 +64,81 @@ export function BrandStory() {
             >
               Built through ideas, experience, and direction.
             </h2>
-
           </div>
 
-
           <div className="brand-story__introduction">
-
             <p>
               Visionaire Code is part of a broader journey toward
               building useful, thoughtful, and well-engineered
               digital products.
             </p>
-
           </div>
-
         </header>
 
+        <div className="brand-story__journey">
+          <div className="brand-story__timeline">
+            <div
+              className="brand-story__timeline-line"
+              aria-hidden="true"
+            />
 
-        {/* ========================================
-            MAIN CONTENT
-            ======================================== */}
+            <Motion.div
+              className="brand-story__timeline-progress"
+              aria-hidden="true"
+              animate={{
+                width: `${(activeChapter / 4) * 100}%`,
+              }}
+              transition={{
+                duration: 0.35,
+                ease: "easeOut",
+              }}
+            />
 
-        <div className="brand-story__body">
+            <div className="brand-story__timeline-items">
+              {storyChapters.map((chapter, index) => {
+                const isActive = index === activeChapter
 
-          {/* ======================================
-              ECOSYSTEM
-              ====================================== */}
+                return (
+                  <button
+                    type="button"
+                    key={chapter.number}
+                    className={`brand-story__timeline-item ${
+                      isActive ? "is-active" : ""
+                    }`}
+                    onClick={() => setActiveChapter(index)}
+                    aria-label={`View ${chapter.title}`}
+                    aria-pressed={isActive}
+                  >
+                    <span
+                      className="brand-story__timeline-dot"
+                      aria-hidden="true"
+                    />
 
-          <aside
-            className="brand-story__ecosystem"
-            aria-labelledby="brand-story-ecosystem"
-          >
+                    <span className="brand-story__timeline-number">
+                      {chapter.number}
+                    </span>
 
-            <span
-              id="brand-story-ecosystem"
-              className="brand-story__label"
-            >
-              Ecosystem
-            </span>
-
-
-            <div className="brand-story__ecosystem-list">
-
-              {ecosystemItems.map((item) => (
-                <div
-                  key={item.title}
-                  className={`brand-story__ecosystem-item ${
-                    item.active ? "is-active" : ""
-                  }`}
-                >
-
-                  <span
-                    className="brand-story__ecosystem-indicator"
-                    aria-hidden="true"
-                  />
-
-
-                  <div className="brand-story__ecosystem-content">
-
-                    <h3>
-                      {item.title}
-                    </h3>
-
-                    <p>
-                      {item.description}
-                    </p>
-
-                  </div>
-
-                </div>
-              ))}
-
+                    <span className="brand-story__timeline-title">
+                      {chapter.title}
+                    </span>
+                  </button>
+                )
+              })}
             </div>
+          </div>
 
-          </aside>
-
-
-          {/* ======================================
-              STORY JOURNEY
-              ====================================== */}
-
-          <div className="brand-story__journey">
-
-            <div className="brand-story__journey-header">
-
-              <span className="brand-story__label">
-                Journey
-              </span>
-
-              <span className="brand-story__journey-hint">
-                Explore the chapters
-              </span>
-
-            </div>
-
-
-            {/* ====================================
-                TIMELINE
-                ==================================== */}
-
-            <nav
-              className="brand-story__timeline"
-              aria-label="Story chapters"
+          <div className="brand-story__story">
+            <div
+              className="brand-story__story-visual"
+              aria-hidden="true"
             >
-
-              <div
-                className="brand-story__timeline-line"
-                aria-hidden="true"
-              />
-
-
-              <Motion.div
-                className="brand-story__timeline-progress"
-                aria-hidden="true"
-                animate={{
-                  width: `${(activeChapter / 4) * 100}%`,
-                }}
-                transition={{
-                  duration: 0.35,
-                  ease: "easeOut",
-                }}
-              />
-
-
-              <div className="brand-story__timeline-items">
-
-                {storyChapters.map((chapter, index) => {
-                  const isActive = index === activeChapter
-
-                  return (
-                    <button
-                      type="button"
-                      key={chapter.number}
-                      className={`brand-story__timeline-item ${
-                        isActive ? "is-active" : ""
-                      }`}
-                      onClick={() => setActiveChapter(index)}
-                      aria-label={`View ${chapter.title}`}
-                      aria-pressed={isActive}
-                    >
-
-                      <span
-                        className="brand-story__timeline-dot"
-                        aria-hidden="true"
-                      />
-
-                      <span className="brand-story__timeline-title">
-                        {chapter.title}
-                      </span>
-
-                    </button>
-                  )
-                })}
-
-              </div>
-
-            </nav>
-
-
-            {/* ====================================
-                ACTIVE STORY
-                ==================================== */}
+              <LuCompass strokeWidth={1} />
+            </div>
 
             <AnimatePresence mode="wait">
-
               <Motion.div
                 key={activeStory.number}
+                className="brand-story__story-content"
                 initial={{
                   opacity: 0,
                   y: 8,
@@ -286,68 +156,17 @@ export function BrandStory() {
                   ease: "easeOut",
                 }}
               >
+                <span className="brand-story__story-state">
+                  {activeStory.number}
+                </span>
 
-                <Card
-                  variant="default"
-                  padding="default"
-                  interactive
-                  className="brand-story__story"
-                  visual={
-                    <CardVisual variant="service">
-                      <LuCompass
-                        aria-hidden="true"
-                        strokeWidth={1.15}
-                      />
-                    </CardVisual>
-                  }
-                >
+                <h3>{activeStory.title}</h3>
 
-                  <CardContent className="brand-story__story-content">
-
-                    <div className="brand-story__story-state">
-                      {activeStory.current
-                        ? "Current"
-                        : activeStory.future
-                          ? "Ahead"
-                          : "Chapter"}
-                    </div>
-
-
-                    <h3>
-                      {activeStory.title}
-                    </h3>
-
-
-                    <p>
-                      {activeStory.text}
-                    </p>
-
-                  </CardContent>
-
-
-                  <CardFooter className="brand-story__story-footer">
-
-                    <span className="brand-story__story-line" />
-
-                    <span
-                      className="brand-story__story-mark"
-                      aria-hidden="true"
-                    >
-                      +
-                    </span>
-
-                  </CardFooter>
-
-                </Card>
-
+                <p>{activeStory.text}</p>
               </Motion.div>
-
             </AnimatePresence>
-
           </div>
-
         </div>
-
       </Container>
     </section>
   )

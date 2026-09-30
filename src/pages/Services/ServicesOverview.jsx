@@ -50,11 +50,10 @@ const principles = [
   },
 ]
 
-
 export function ServicesOverview() {
   return (
     <section
-      className="services-overview"
+      className="services-overview background-primary"
       aria-labelledby="services-overview-title"
     >
       <Container>

@@ -4,6 +4,7 @@ export function FeaturedProjects() {
   return (
     <FeaturedProjectsSection
       id="featured-projects"
+      className="background-soft"
       eyebrow="Featured Work"
       title="Projects built around real problems."
       description="Explore selected projects from the Visionaire Code ecosystem. Each project represents a practical software challenge, considered design decisions, and an ongoing development process."

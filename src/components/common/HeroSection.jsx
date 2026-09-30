@@ -12,6 +12,7 @@ export function HeroSection({
   primaryAction,
   secondaryAction,
   visual,
+  mobileVisual = "background",
   className = "",
 }) {
   return (
@@ -21,14 +22,9 @@ export function HeroSection({
     >
       <Container>
         <div className="hero-section__content">
-
-          {/* Hero Copy */}
           <div className="hero-section__copy">
-
             {eyebrow && (
-              <p className="hero-section__eyebrow">
-                {eyebrow}
-              </p>
+              <p className="hero-section__eyebrow">{eyebrow}</p>
             )}
 
             <h1
@@ -46,7 +42,6 @@ export function HeroSection({
 
             {(primaryAction || secondaryAction) && (
               <div className="hero-section__actions">
-
                 {primaryAction && (
                   <Button
                     as={Link}
@@ -68,23 +63,18 @@ export function HeroSection({
                     {secondaryAction.label}
                   </Button>
                 )}
-
               </div>
             )}
-
           </div>
 
-
-          {/* Hero Visual */}
           {visual && (
             <div
-              className="hero-section__visual"
+              className={`hero-section__visual hero-section__visual--mobile-${mobileVisual}`}
               aria-hidden="true"
             >
               {visual}
             </div>
           )}
-
         </div>
       </Container>
     </section>
